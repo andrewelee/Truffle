@@ -1,0 +1,59 @@
+<h2>New Product!</h2>
+
+<form action="<%= products_url %>" method="post">
+  <%= auth_token %>
+
+  <label>
+  name
+    <input type="text" name="product[name]">
+  </label>
+  <br>
+
+  <label>
+  url
+    <input type="text" name="product[url]">
+  </label>
+  <br>
+
+  <label>
+  price
+    <input type="text" name="product[price]">
+  </label>
+  <br>
+
+  <label>
+    brand
+    <select name="product[brand_id]">
+      <option value="blank" selected> </option>
+      <% @brands.each do |brand| %>
+        <option value="<%= brand.id %>"><%= brand.name %></option>
+      <% end %>
+    </select>
+  </label>
+  <br>
+
+  <label>
+    category
+    <select name="product[category_id]">
+      <option value="blank" selected> </option>
+      <% @categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+  </label>
+  <br>
+
+  <label>
+    finder
+    <select name="product[finder_user_id]">
+      <option value="blank" selected> </option>
+      <% @users.each do |user| %>
+        <option value="<%= user.id %>"><%= user.username %></option>
+      <% end %>
+    </select>
+  </label>
+  <br>
+
+  <button>Create Product</button>
+
+</form>

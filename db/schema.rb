@@ -11,10 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826151507) do
+ActiveRecord::Schema.define(version: 20140826190628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brands", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name",           null: false
+    t.string   "url",            null: false
+    t.float    "price",          null: false
+    t.integer  "brand_id",       null: false
+    t.integer  "category_id",    null: false
+    t.integer  "finder_user_id", null: false
+    t.integer  "editor_user_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
+  add_index "products", ["editor_user_id"], name: "index_products_on_editor_user_id", using: :btree
+  add_index "products", ["finder_user_id"], name: "index_products_on_finder_user_id", using: :btree
+  add_index "products", ["name"], name: "index_products_on_name", unique: true, using: :btree
+  add_index "products", ["price"], name: "index_products_on_price", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                            null: false

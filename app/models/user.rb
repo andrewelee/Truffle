@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
     after_initialize :ensure_session_token
 
-    attr_reader :password
+    attr_reader :password, :idInput
 
     def self.find_by_credentials(idInput, password)
       #checks for username first. If unsuccessful, follows up with email

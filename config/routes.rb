@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
   resources :users, except: [:index]
+  resources :products
+  resources :brands, only: [:create, :destroy]
+  resources :categories, only: [:create, :destroy]
 
   resource :session, only: [:new, :create, :destroy]
+
+
 
   #root 'products/index'
 

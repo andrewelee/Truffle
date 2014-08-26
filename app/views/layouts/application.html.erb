@@ -8,10 +8,11 @@
 </head>
 <body>
 
+<h1>truffle</h1>
 Explore Shop Feed
-
+<br>
 <% if signed_in? %>
-  <a href="<%= user_url(current_user) %>">User Show</a> | Notifications:  |
+  <a href="<%= user_url(current_user) %>">User Show</a> | Notifications:
 <% else %>
   <a href="<%= new_session_url %>">Log in</a>
   <a href="<%= new_user_url %>">Sign up</a>
@@ -20,4 +21,14 @@ Explore Shop Feed
 <%= yield %>
 
 </body>
+
+<footer>
+  <br>
+  [#link to about page]
+
+<% if signed_in? %>
+  <%= link_to "Sign Out", session_url, method: :delete %>
+<% end %>
+
+</footer>
 </html>

@@ -6,9 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# User.create(
-#   name: "Andrew Lee",
-#   username: "andrew",
-#   email: "andrew@andrew.com",
-#
-#   )
+Category.create(
+  [{ name: 'Home'}, {name: 'Gadgets'}, {name: 'Games & Toys'}
+  ])
+
+Brand.create([{ name: 'Brand A'}, {name: 'Brand B'}])
