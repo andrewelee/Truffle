@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
-  def is_editor?(user)
+  def is_editor?
     current_user.isEditor == true
   end
 
