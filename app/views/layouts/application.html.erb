@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Truffle!</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+Explore Shop Feed
+
+<% if signed_in? %>
+  <a href="<%= user_url(current_user) %>">User Show</a> | Notifications:  |
+<% else %>
+  <a href="<%= new_session_url %>">Log in</a>
+  <a href="<%= new_user_url %>">Sign up</a>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
