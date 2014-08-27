@@ -6,7 +6,7 @@
 	<% end %>
 <% end %>
 
-<form action="<%= products_url %>" method="post">
+<form action="<%= products_url %>" method="post" enctype="multipart/form-data">
   <%= auth_token %>
 
   <label>
@@ -68,6 +68,10 @@
     </select>
   </label>
   <br>
+
+  <label>Image
+    <input type="file" name="product[image]">
+  </label>
 
   <button>Create Product</button>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826190628) do
+ActiveRecord::Schema.define(version: 20140827155809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +28,29 @@ ActiveRecord::Schema.define(version: 20140826190628) do
     t.datetime "updated_at"
   end
 
+  create_table "likes", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "product_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["product_id"], name: "index_likes_on_product_id", using: :btree
+  add_index "likes", ["user_id", "product_id"], name: "index_likes_on_user_id_and_product_id", unique: true, using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
+
   create_table "products", force: true do |t|
-    t.string   "name",           null: false
-    t.string   "url",            null: false
-    t.float    "price",          null: false
-    t.integer  "brand_id",       null: false
-    t.integer  "category_id",    null: false
-    t.integer  "finder_user_id", null: false
-    t.integer  "editor_user_id", null: false
+    t.string   "name",               null: false
+    t.string   "url",                null: false
+    t.float    "price",              null: false
+    t.integer  "brand_id"
+    t.integer  "category_id"
+    t.integer  "finder_user_id",     null: false
+    t.integer  "editor_user_id",     null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,12 +63,16 @@ ActiveRecord::Schema.define(version: 20140826190628) do
   add_index "products", ["price"], name: "index_products_on_price", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "name",                            null: false
-    t.string   "username",                        null: false
-    t.string   "email",                           null: false
-    t.boolean  "isEditor",        default: false
-    t.string   "password_digest",                 null: false
+    t.string   "name",                                null: false
+    t.string   "username",                            null: false
+    t.string   "email",                               null: false
+    t.boolean  "isEditor",            default: false
+    t.string   "password_digest",                     null: false
     t.string   "session_token"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -22,24 +22,24 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @partial = "liked"
+    #@partial = @user.id
     render :show
   end
-  
+
   def edit
     @user = User.find(params[:id])
     render :edit
   end
-  
+
   def destroy
     @user = User.find(params[:id])
     log_out_user
     @user.destroy
-    
+
     redirect_to root_url
   end
 
   def user_params
-    params.require(:user).permit(:name, :username, :email, :password)
+    params.require(:user).permit(:name, :username, :email, :password, :avatar)
   end
 end

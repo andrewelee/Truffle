@@ -37,6 +37,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem "paperclip", "~> 4.1"
+gem "aws-sdk"
+gem "figaro"
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

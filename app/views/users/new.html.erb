@@ -7,7 +7,7 @@
 	<br>
 <% end %>
 
-<form action="<%=users_url%>" method="post">
+<form action="<%=users_url%>" method="post" enctype="multipart/form-data">
   <%= auth_token %>
 
   <label>
@@ -34,8 +34,11 @@
   </label>
   <br>
 
-  <label>Placeholder for Image</label>
+  <label>Image
+    <input type="file" name="user[avatar]">
+  </label>
 
+  <br>
   <button>Sign Up</button>
 
 </form>

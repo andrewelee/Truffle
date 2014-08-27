@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :isEditor, default: false
       t.string :password_digest, null: false
       t.string :session_token
+      t.attachment :avatar
 
       t.timestamps
     end

@@ -18,7 +18,7 @@ User.create([
   isEditor: true,
   password_digest: "$2a$10$ojQsYjyS8kKZ1a39ypf8puHt3zEstTw4Rd6V.vrIyi/fMX.k1Dhe6"
   },
-  
+
   {
   name: 'Bob Saget',
   username: 'DannyTanner1987',
@@ -26,9 +26,9 @@ User.create([
   isEditor: false,
   password_digest: "$2a$10$ERywLQJcZ41fa.TcK6GYeOkRMTneUdrdBD8bW29//3x7noxmu1wi6"
   }])
-  
+
   Product.create(
-    name:"Piggy Mug", 
+    name:"Piggy Mug",
     url: "http://www.amazon.com/Decole-Pig-Manmaru-Mug-Spoon/dp/B00397ARDQ",
     price: 20.00,
     brand_id: 1,
@@ -36,9 +36,9 @@ User.create([
     finder_user_id: 1,
     editor_user_id: 1
   )
-  
+
   Product.create(
-    name:"Piggy Mug2", 
+    name:"Piggy Mug2",
     url: "http://www.amazon.com/Decole-Pig-Manmaru-Mug-Spoon/dp/B00397ARDQ",
     price: 25.00,
     brand_id: 2,
@@ -46,5 +46,5 @@ User.create([
     finder_user_id: 2,
     editor_user_id: 1
   )
-  
+
   #pass: andrew, fullhouse

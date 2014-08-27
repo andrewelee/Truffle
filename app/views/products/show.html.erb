@@ -1,19 +1,48 @@
 <h2><%= @product.name %></h2>
 
 <% if signed_in? && is_editor?%>
+Editor Commands:
+<br>
 	<a href="<%= edit_product_url(@product)%>">Edit</a>
 	<%= link_to "Delete", product_url, method: :delete %>
 <% end %>
 
-<img src="/assets/placeholder.jpg">
+<br>
+<%= image_tag @product.image.url(:large) %>
 
-<h3><a href="http://<%= @product.url %>">$<%= @product.price.round %></a></h3>
+<br>
+
+  <% if Like.find_like(current_user.id, @product.id) %>
+    <form action="<%= unlike_url %>" method="post">
+      <%= auth_token %>
+      <input type="hidden" name="like[user_id]" value="<%=current_user.id%>">
+      <input type="hidden" name="like[product_id]" value="<%= @product.id %>">
+      <button>Unlike</button>
+    </form>
+  <% else %>
+    <form action="<%= like_url %>" method="post">
+      <%= auth_token %>
+      <input type="hidden" name="like[user_id]" value="<%=current_user.id%>">
+      <input type="hidden" name="like[product_id]" value="<%= @product.id %>">
+      <button>Like</button>
+    </form>
+  <% end %>
+
+<h3><a href="<%= @product.url %>">$<%= @product.price.round %></a></h3>
 
 <h3>Likes:</h4>
+<% @product.user_likes.each do |liker| %>
+  <%= link_to image_tag(liker.avatar.url(:thumb)), user_url(liker)%>
+<% end %>
 
-Found by 
+<br>
+Total Likes: <%= @product.likes.count %>
+<br>
+Found by
 <a href="<%= user_url(@product.finder) %>">@<%= @product.finder.username %></a>
 
-<h3>Popular <%= @product.category.name %> products</h3>
+<% if @product.category %>
+  <h3>Popular <%= @product.category.name %> products</h3>
+<% end %>
 
 <h3>Comments</h3>

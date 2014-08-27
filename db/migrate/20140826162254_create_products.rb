@@ -4,10 +4,11 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name, null: false
       t.string :url, null: false
       t.float :price, null: false
-      t.integer :brand_id, null: false
-      t.integer :category_id, null: false
+      t.integer :brand_id
+      t.integer :category_id
       t.integer :finder_user_id, null: false
       t.integer :editor_user_id, null: false
+      t.attachment :image
 
       t.timestamps
     end

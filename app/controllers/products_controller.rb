@@ -15,12 +15,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    
+
     if @product.price
       @product.price = @product.price.round
     end
 
-    #only editors can post products:
     @product.editor_user_id = current_user.id
 
     if @product.save
@@ -38,7 +37,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     render :show
   end
-  
+
   def edit
     @product = Product.find(params[:id])
     @users = User.all
@@ -46,7 +45,7 @@ class ProductsController < ApplicationController
     @categories = Category.all
     render :edit
   end
-  
+
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
@@ -57,7 +56,7 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :url, :price, :brand_id,
-                   :category_id, :finder_user_id,:editor_user_id)
+                   :category_id, :finder_user_id, :editor_user_id, :image)
   end
 
 end

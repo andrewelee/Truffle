@@ -1,6 +1,6 @@
-<h2>Hullo!</h2>
 
-<img src="/assets/oswald.png">
+<%= image_tag @user.avatar.url(:normal) %>
+
 <br>
 <%= @user.name %>
 <br>
@@ -9,17 +9,27 @@
 
 <% if current_user.id == @user.id %>
 	<a href="<%= edit_user_url(@user) %>">Edit</a>
+<% else %>
+  Follow
 <% end %>
 
 <br><br>
-<strong>Liked</strong>
+Likes(<%= @user.likes.length %>)
 
-<strong>Collections</strong>
+Collections
 
-<strong>Following</strong>
+Following
 
-<strong>Followers</strong>
+Followers
 
 <br>
 <%= @partial %>
-	
+
+<% @user.liked_products.each do |product| %>
+  <%= link_to image_tag(product.image.url(:medium)), product_url(product)%>
+  <br>
+  <% product.user_likes.each do |liker| %>
+    <%= link_to image_tag(liker.avatar.url(:thumb)), user_url(liker)%>
+  <% end %>
+<% end %>
+

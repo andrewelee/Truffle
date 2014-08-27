@@ -3,16 +3,26 @@ class User < ActiveRecord::Base
     validates :username, length: {minimum: 2, maximum: 16, allow_nil: true}
     validates :password, length: { minimum: 6, allow_nil: true}
 
+    has_attached_file :avatar, :styles => {
+      :normal => "96x96>",
+      :thumb => "48x48>"
+    }, :default_url => '/assets/missing_:style.png'
+
+    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
     after_initialize :ensure_session_token
 
     attr_reader :password, :idInput
-    
+
     has_many(
       :found_products,
       class_name: "Product",
       foreign_key: :finder_user_id,
       primary_key: :id
     )
+
+    has_many :likes, class_name: "Like"
+    has_many :liked_products, through: :likes, source: :product
 
     def self.find_by_credentials(idInput, password)
       #checks for username first. If unsuccessful, follows up with email

@@ -3,11 +3,17 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :users, except: [:index]
+
   resources :products
   resources :brands, only: [:create, :destroy, :index]
   resources :categories, only: [:create, :destroy, :index]
 
   resource :session, only: [:new, :create, :destroy]
+
+  resources :comments, only: [:create, :destroy]
+
+  post 'like' => 'likes#create', as: :like
+  post 'unlike' => 'likes#destroy', as: :unlike
 
   #get 'products/categories', :to => 'products#categories'
 
