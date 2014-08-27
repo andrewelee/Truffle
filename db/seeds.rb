@@ -34,7 +34,8 @@ User.create([
     brand_id: 1,
     category_id: 1,
     finder_user_id: 1,
-    editor_user_id: 1
+    editor_user_id: 1,
+    image: "http://ecx.images-amazon.com/images/I/319QJI4Y-zL.jpg"
   )
 
   Product.create(
@@ -44,7 +45,8 @@ User.create([
     brand_id: 2,
     category_id: 1,
     finder_user_id: 2,
-    editor_user_id: 1
+    editor_user_id: 1,
+    image: "http://ecx.images-amazon.com/images/I/319QJI4Y-zL.jpg"
   )
 
   #pass: andrew, fullhouse
