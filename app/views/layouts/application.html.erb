@@ -9,11 +9,14 @@
 <body>
 
 <h1>truffle</h1>
-Sniffing out gems.
 
-<br><br>
-Explore Shop Feed
-<br>
+<hr>
+
+<h3>
+	<a href="<%= root_url %>">Explore</a>
+	<a href="<%= root_url %>">Shop</a>	
+</h3>
+
 <% if signed_in? %>
   <a href="<%= user_url(current_user) %>">User Show</a> | Notifications:
 <% else %>
@@ -21,12 +24,15 @@ Explore Shop Feed
   <a href="<%= new_user_url %>">Sign up</a>
 <% end %>
 
+<hr>
+
 <%= yield %>
 
 </body>
 
+<hr>
+
 <footer>
-  <br>
   [#link to about page]
 
 <% if signed_in? %>

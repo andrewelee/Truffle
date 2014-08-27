@@ -6,6 +6,13 @@ class User < ActiveRecord::Base
     after_initialize :ensure_session_token
 
     attr_reader :password, :idInput
+    
+    has_many(
+      :found_products,
+      class_name: "Product",
+      foreign_key: :finder_user_id,
+      primary_key: :id
+    )
 
     def self.find_by_credentials(idInput, password)
       #checks for username first. If unsuccessful, follows up with email

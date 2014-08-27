@@ -4,12 +4,12 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index]
   resources :products
-  resources :brands, only: [:create, :destroy]
-  resources :categories, only: [:create, :destroy]
+  resources :brands, only: [:create, :destroy, :index]
+  resources :categories, only: [:create, :destroy, :index]
 
   resource :session, only: [:new, :create, :destroy]
 
-
+  #get 'products/categories', :to => 'products#categories'
 
   #root 'products/index'
 

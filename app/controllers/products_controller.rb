@@ -15,7 +15,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.price = @product.price.round
+    
+    if @product.price
+      @product.price = @product.price.round
+    end
 
     #only editors can post products:
     @product.editor_user_id = current_user.id
@@ -34,6 +37,20 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     render :show
+  end
+  
+  def edit
+    @product = Product.find(params[:id])
+    @users = User.all
+    @brands = Brand.all
+    @categories = Category.all
+    render :edit
+  end
+  
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to root_url
   end
 
   private

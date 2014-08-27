@@ -1,12 +1,10 @@
-<h2>Products Index</h2>
 
-<% if signed_in? && is_editor?%>
-  <% @products.each do |product| %>
-    <a href="<%= product_url(product) %>"><%= product.name %></a> |
-    price: $<%= product.price.to_i %>
-  <% end %>
-<% else %>
-  <!-- <% 18.times do |x| %>
-    <%= x %>
-  <% end %> -->
+
+<% @products.each do |product| %>
+	<%= link_to image_tag('placeholder.jpg', width: "10%"), product_url(product)%>
+  <br>
+	<%= product.name %>
+	<br>
+  price: <a href="<%= product.url %>">$<%= product.price.round %></a>
+	<br><br>
 <% end %>

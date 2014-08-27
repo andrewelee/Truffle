@@ -1,4 +1,4 @@
-<h2>New Product!</h2>
+<h2>Edit Product: <%= @product.name %></h2>
 
 <% if flash[:errors] %>
 	<% flash[:errors].each do |error| %>
@@ -6,7 +6,7 @@
 	<% end %>
 <% end %>
 
-<form action="<%= products_url %>" method="post">
+<form action="<%= product_url(@product) %>" method="post">
   <%= auth_token %>
 
   <label>
@@ -69,6 +69,6 @@
   </label>
   <br>
 
-  <button>Create Product</button>
+  <button>Edit Product</button>
 
 </form>

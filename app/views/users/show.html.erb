@@ -1,4 +1,25 @@
 <h2>Hullo!</h2>
 
-<%= current_user.name %>
-@<%= current_user.username %>
+<img src="/assets/oswald.png">
+<br>
+<%= @user.name %>
+<br>
+@<%= @user.username %>
+<br>
+
+<% if current_user.id == @user.id %>
+	<a href="<%= edit_user_url(@user) %>">Edit</a>
+<% end %>
+
+<br><br>
+<strong>Liked</strong>
+
+<strong>Collections</strong>
+
+<strong>Following</strong>
+
+<strong>Followers</strong>
+
+<br>
+<%= @partial %>
+	

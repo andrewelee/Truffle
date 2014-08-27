@@ -15,4 +15,11 @@ class Product < ActiveRecord::Base
     foreign_key: :category_id,
     primary_key: :id
   )
+  
+  belongs_to(
+    :finder,
+    class_name: "User",
+    foreign_key: :finder_user_id,
+    primary_key: :id
+  )
 end

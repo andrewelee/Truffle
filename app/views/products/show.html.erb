@@ -1,8 +1,18 @@
 <h2><%= @product.name %></h2>
 
-<h3><a href="http://<%= @product.url %>">$<%= @product.price.round %></a></h4>
+<% if signed_in? && is_editor?%>
+	<a href="<%= edit_product_url(@product)%>">Edit</a>
+	<%= link_to "Delete", product_url, method: :delete %>
+<% end %>
+
+<img src="/assets/placeholder.jpg">
+
+<h3><a href="http://<%= @product.url %>">$<%= @product.price.round %></a></h3>
 
 <h3>Likes:</h4>
+
+Found by 
+<a href="<%= user_url(@product.finder) %>">@<%= @product.finder.username %></a>
 
 <h3>Popular <%= @product.category.name %> products</h3>
 
