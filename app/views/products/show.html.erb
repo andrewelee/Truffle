@@ -39,10 +39,16 @@ Editor Commands:
 Total Likes: <%= @product.likes.count %>
 <br>
 Found by
+<strong>
 <a href="<%= user_url(@product.finder) %>">@<%= @product.finder.username %></a>
-
+</strong>
 <% if @product.category %>
   <h3>Popular <%= @product.category.name %> products</h3>
 <% end %>
 
-<h3>Comments</h3>
+<h3><%= @product.comments.count %> comments:</h3>
+<section class="comments">
+  <%= render partial: "comments/comment", collection: @product.comments %>
+  <br>
+  <%= render partial: "comments/form", locals: {product: @product} %>
+</section>

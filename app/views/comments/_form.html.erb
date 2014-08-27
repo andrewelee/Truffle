@@ -1,0 +1,15 @@
+<form class="form-new-comment" action="<%= comments_url %>" method="post">
+  <%= auth_token %>
+
+  <input type="hidden" name="comment[product_id]" value="<%= product.id %>">
+
+  <div class="input">
+    <label for="textarea-comment-text">Comment on this product</label>
+    <br>
+    <textarea id="textarea-comment-text" name="comment[text]"></textarea>
+  </div>
+
+  <div class="submit">
+    <button>Comment</button>
+  </div>
+</form>

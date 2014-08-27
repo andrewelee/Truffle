@@ -35,5 +35,6 @@ class Product < ActiveRecord::Base
 
   has_many :likes, class_name: "Like"
   has_many :user_likes, through: :likes, source: :user
+  has_many :comments, inverse_of: :product, dependent: :destroy
 
 end

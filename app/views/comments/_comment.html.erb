@@ -1,0 +1,17 @@
+<article class="comment">
+  <header>
+    <%= image_tag comment.user.avatar.url(:thumb) %>
+    <%= comment.text %> |
+    <%= comment.user.name %> <time><%= comment.created_at %></time>
+  </header>
+
+  <% if current_user.id == comment.user_id %>
+    <form action="<%= comment_url(comment) %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <%= auth_token %>
+
+      <button>Delete</button>
+    </form>
+  <% end %>
+
+</article>

@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
     has_many :likes, class_name: "Like"
     has_many :liked_products, through: :likes, source: :product
 
+    has_many :comments, class_name: "Comment", inverse_of: :user, dependent: :destroy
+
     def self.find_by_credentials(idInput, password)
       #checks for username first. If unsuccessful, follows up with email
       @user = User.find_by_username(idInput)
