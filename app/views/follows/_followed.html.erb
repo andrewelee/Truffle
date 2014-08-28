@@ -1,11 +1,11 @@
-<article class="comment">
+<article class="followed-users">
   <header>
 		<%= link_to image_tag(comment.user.avatar.url(:thumb)), user_url(comment.user)%>
     <%= comment.text %> |
     <%= comment.user.name %> <time><%= comment.created_at %></time>
   </header>
 
-  <% if signed_in? && current_user.id == comment.user_id %>
+  <% if current_user.id == comment.user_id %>
     <form action="<%= comment_url(comment) %>" method="post">
       <input type="hidden" name="_method" value="DELETE">
       <%= auth_token %>

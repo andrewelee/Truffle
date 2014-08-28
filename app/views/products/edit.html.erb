@@ -6,7 +6,8 @@
 	<% end %>
 <% end %>
 
-<form action="<%= product_url(@product) %>" method="post">
+<form action="<%= product_url(@product) %>" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="_method" value="patch">
   <%= auth_token %>
 
   <label>
@@ -68,6 +69,11 @@
     </select>
   </label>
   <br>
+	
+  <label>Image
+		<%= image_tag @product.image.url(:large) %>
+    <input type="file" name="product[image]">
+  </label>
 
   <button>Edit Product</button>
 

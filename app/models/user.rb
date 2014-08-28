@@ -20,11 +20,25 @@ class User < ActiveRecord::Base
       foreign_key: :finder_user_id,
       primary_key: :id
     )
+    
+    has_many :comments, class_name: "Comment", inverse_of: :user, dependent: :destroy
 
+  #Like Associations
     has_many :likes, class_name: "Like"
     has_many :liked_products, through: :likes, source: :product
 
-    has_many :comments, class_name: "Comment", inverse_of: :user, dependent: :destroy
+  #Follow Associations
+    has_many :follows, foreign_key: "follower_id", dependent: :destroy
+    has_many :followed_users, through: :follows, source: :followed    
+    
+    has_many(
+      :reverse_follows, 
+      class_name: "Follow",
+      foreign_key: :followed_id,
+      dependent: :destroy
+    )
+    has_many :followers, through: :reverse_follows, source: :follower
+    
 
     def self.find_by_credentials(idInput, password)
       #checks for username first. If unsuccessful, follows up with email

@@ -37,11 +37,15 @@ ActiveRecord::Schema.define(version: 20140827215339) do
   end
 
   create_table "follows", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "followed_user_id"
+    t.integer  "follower_id"
+    t.integer  "followed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "follows", ["followed_id"], name: "index_follows_on_followed_id", using: :btree
+  add_index "follows", ["follower_id", "followed_id"], name: "index_follows_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
 
   create_table "likes", force: true do |t|
     t.integer  "user_id",    null: false
