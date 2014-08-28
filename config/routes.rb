@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
 
   resources :products
-  resources :brands, only: [:create, :destroy, :index]
-  resources :categories, only: [:create, :destroy, :index]
+  resources :brands, only: [:create, :destroy, :index, :show]
+  resources :categories, only: [:create, :destroy, :index, :show]
 
   resource :session, only: [:new, :create, :destroy]
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   post 'like' => 'likes#create', as: :like
   post 'unlike' => 'likes#destroy', as: :unlike
-  
+
   post 'follow' => 'follows#create', as: :follow
   post 'unfollow' => 'follows#destroy', as: :unfollow
 

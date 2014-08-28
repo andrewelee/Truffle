@@ -1,0 +1,6 @@
+<%= link_to "Random", {:controller => "products", :action => "index", :sort => "random" }%>
+<%= link_to "Most Popular", {:controller => "products", :action => "index", :sort => "popular" }%>
+<%= link_to "New", {:controller => "products", :action => "index", :sort => "new" }%>
+<br>
+<%= link_to "Everything", {:controller => "products", :action => "index", :filter => "everything" }%>
+<%= link_to "Under $50", {:controller => "products", :action => "index", :filter => "50" }%>

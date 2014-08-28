@@ -14,7 +14,7 @@
 
 <h3>
 	<a href="<%= root_url %>">Explore</a>
-	<a href="<%= root_url %>">Shop</a>
+	<a href="<%= categories_url %>">Shop</a>
   <% if signed_in? && is_editor?%>
   	<a href="<%= new_product_url%>">Add Product</a>
   <% end %>

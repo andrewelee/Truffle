@@ -1,5 +1,14 @@
 <!-- Options for Explore Page -->
-<%= render "sorts" %>
+<%= render "shared/shop_options" %>
+<%= render "sorts"%>
+<br>
+
+<% Category.all.each do |category| %>
+  <a href="<%= category_url(category) %>"><%= category.name %></a>
+<% end %>
+
+
+<h2><%= @category.name %></h2>
 
 <% @products.each do |product| %>
   <section class="product">
@@ -11,13 +20,6 @@
   	Name: <strong><%= product.name %></strong>
   	<br>
     price: <a href="<%= product.url %>">$<%= product.price.round %></a>
-  	<br>
-    <% product.likes.each do |like| %>
-      <%= link_to image_tag(like.user.avatar.url(:thumb)), user_url(like.user)%>
-    <% end %>
 
-    <br>
-    Total Likes: <%= product.likes.length %>
-  	<br><br>
   </section>
 <% end %>
