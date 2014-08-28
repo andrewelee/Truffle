@@ -5,12 +5,15 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
 
   resources :products
+
   resources :brands, only: [:create, :destroy, :index, :show]
   resources :categories, only: [:create, :destroy, :index, :show]
 
   resource :session, only: [:new, :create, :destroy]
 
   resources :comments, only: [:create, :destroy]
+
+  resources :collections, only: [:create, :destroy]
 
   post 'like' => 'likes#create', as: :like
   post 'unlike' => 'likes#destroy', as: :unlike
