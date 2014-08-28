@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827215339) do
+ActiveRecord::Schema.define(version: 20140828211344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,27 @@ ActiveRecord::Schema.define(version: 20140827215339) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "collection_items", force: true do |t|
+    t.integer  "collection_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "collection_items", ["collection_id", "product_id"], name: "index_collection_items_on_collection_id_and_product_id", unique: true, using: :btree
+  add_index "collection_items", ["collection_id"], name: "index_collection_items_on_collection_id", using: :btree
+  add_index "collection_items", ["product_id"], name: "index_collection_items_on_product_id", using: :btree
+
+  create_table "collections", force: true do |t|
+    t.string   "name",       null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "collections", ["name"], name: "index_collections_on_name", using: :btree
+  add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.integer  "user_id",    null: false
