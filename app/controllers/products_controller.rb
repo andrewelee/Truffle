@@ -10,8 +10,10 @@ class ProductsController < ApplicationController
     if params[:sort] == "new"
       @products = @products.order("created_at desc")
     elsif params[:sort] == "popular"
-      @products = @products.select("products.*, COUNT(user_id) AS likes").joins(:likes).group("products.id")
-      @products = @products.order("likes DESC")
+      @products = @products.select("products.*, COUNT(user_id) AS likes")
+        .joins("LEFT OUTER JOIN likes ON products.id = likes.product_id")
+        .group("products.id")
+        .order("likes DESC")
     elsif params[:sort] == "random"
       @products = @products.shuffle
     end
