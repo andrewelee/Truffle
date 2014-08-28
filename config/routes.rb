@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   post 'like' => 'likes#create', as: :like
   post 'unlike' => 'likes#destroy', as: :unlike
+  
+  post 'follow' => 'follows#create', as: :follow
+  post 'unfollow' => 'follows#destroy', as: :unfollow
 
   #get 'products/categories', :to => 'products#categories'
 

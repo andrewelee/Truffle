@@ -1,6 +1,6 @@
 <article class="comment">
   <header>
-    <%= image_tag comment.user.avatar.url(:thumb) %>
+		<%= link_to image_tag(comment.user.avatar.url(:thumb)), user_url(comment.user)%>
     <%= comment.text %> |
     <%= comment.user.name %> <time><%= comment.created_at %></time>
   </header>

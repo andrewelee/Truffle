@@ -7,10 +7,14 @@
 @<%= @user.username %>
 <br>
 
-<% if current_user.id == @user.id %>
-	<a href="<%= edit_user_url(@user) %>">Edit</a>
-<% else %>
-  Follow
+<% if signed_in? %> 
+	follow!
+	<% if current_user.id == @user.id %>
+		<a href="<%= edit_user_url(@user) %>">Edit</a>
+	<% else %>
+		Follow!
+	  <%= render partial: "follows/form", locals: {user: @user} %>
+	<% end %>
 <% end %>
 
 <br><br>
@@ -31,5 +35,6 @@ Followers
   <% product.user_likes.each do |liker| %>
     <%= link_to image_tag(liker.avatar.url(:thumb)), user_url(liker)%>
   <% end %>
+	<br>
 <% end %>
 

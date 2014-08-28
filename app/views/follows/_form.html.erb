@@ -1,0 +1,15 @@
+<% if Follow.find_follow(current_user.id, user.id) %>
+  <form action="<%= unfollow_url %>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="follow[user_id]" value="<%=current_user.id%>">
+    <input type="hidden" name="follow[followed_user_id]" value="<%= user.id %>">
+    <button>Unfollow</button>
+  </form>
+<% else %>
+  <form action="<%= follow_url %>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="follow[user_id]" value="<%=current_user.id%>">
+    <input type="hidden" name="follow[followed_user_id]" value="<%= user.id %>">
+    <button>Follow</button>
+  </form>
+<% end %>
