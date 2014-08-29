@@ -195,30 +195,20 @@ div.product-box {
 div.product-price {
   background: #00FAAA;
   width:70px;
-    height:40px;
-    position:absolute;
-    right:0px;
-    top:0px;
-    transition: 0.2s;
+  height:40px;
+  position:absolute;
+  right:0px;
+  top:0px;
+  transition: 0.2s;
+  text-align: center;
 }
 
-div.product-price :hover;{
-  background: #00FAAA;
-  width:100px;
-    height:40px;
-    position:absolute;
-    right:0px;
-    top:0px;
-    font-weight: bold;
+div.product-price a {
+  color: #fff;
+  font-weight: 500;
+  font-family: europa, "helvetica";
+  text-decoration: none;
 }
-
-/*div.product-box {
-  display: inline-block;
-  margin: 0 auto;
-  width: 30%;
-  height: 383px;
-  background: #FF8500;
-}*/
 
 div.product-image {
 	background: #FFF;
