@@ -10,12 +10,10 @@
 </div>
 
 <section class="products-list">
-	
 <% @products.each do |product| %>
-
-	<div class="product-box">
+  <div class="product-box">
 		<div class="product-image">
-			<a href="<%= product_url(product) %>">
+	    <a href="<%= product_url(product) %>">
 	      <%= image_tag(product.image.url(:medium)) %>
 	    </a>
 		</div>
@@ -26,10 +24,17 @@
 	    <% end %>
 		</div>
 		
-	</div>
-<%end%>
+    <br>
+  	Name: <strong><%= product.name %></strong>
+  	<br>
+    price: <a href="<%= product.url %>">$<%= product.price.round %></a>
+  	<br>
+		
+    
 
-  
+    <br>
+    Total Likes: <%= product.likes.length %>
+  	<br><br>
+		<% end %>
+  </div>
 </section>
-
-<%= render "shared/footer" %>

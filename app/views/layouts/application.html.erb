@@ -8,39 +8,67 @@
 </head>
 <body>
 
-<h1>truffle</h1>
+<div class="head">
+	<div class="wrapper">
+		<a href="<%= root_url %>">
+			<img src="/assets/truffle-sign.png">
+		</a>
+	</div>
+</div>
 
-<hr>
+<div class="nav-background">
+</div>
 
-<h3>
-	<a href="<%= root_url %>">Explore</a>
-	<a href="<%= categories_url %>">Shop</a>
-  <% if signed_in? && is_editor?%>
-  	<a href="<%= new_product_url%>">Add Product</a>
-  <% end %>
-</h3>
+<nav class="main-nav">
+	<div class="wrapper">
+		<section class="links">
+			<a href="<%= root_url %>">Explore</a>
+			<a href="<%= categories_url %>">Shop</a>
+		  <% if signed_in? && is_editor?%>
+		  	<a href="<%= new_product_url%>">Add Product</a>
+		  <% end %>
+		</section>
+		
+		<section class="user-links">
+			<% if signed_in? %>
+			  <a href="<%= user_url(current_user) %>"><img src="/assets/profile-icon.png"></a> | Notifications:
+			<% else %>
+			  <a href="<%= new_session_url %>">Log in</a>
+			  <a href="<%= new_user_url %>">Sign up</a>
+			<% end %>
+		</section>
+	</div>
+</nav>
 
-<% if signed_in? %>
-  <a href="<%= user_url(current_user) %>">User Show</a> | Notifications:
-<% else %>
-  <a href="<%= new_session_url %>">Log in</a>
-  <a href="<%= new_user_url %>">Sign up</a>
-<% end %>
+<section class="products">
+	<div class="wrapper products">
+		<%= yield %>
+	</div>
 
-<hr>
-
-<%= yield %>
+<!-- <div class="load-more">Load more</div> -->
+</section>
 
 </body>
 
-<hr>
+
 
 <footer>
-  [#link to about page]
 
-<% if signed_in? %>
-  <%= link_to "Sign Out", session_url, method: :delete %>
-<% end %>
+	<div class="wrapper">
+			<h1>Prepare to sniff out some amazing products, all available on Amazon.</h1>
+			
+			<div class="footer-links">
+				<a href="<%= root_url %>" %>About</a>
+				<% if signed_in? %>
+				  <%= link_to "Sign Out", session_url, method: :delete %>
+				<% end %>
+			</div>
+			<p>Truffle is a clone of Canopy created for educational and demoing purposes.</p>
+			<p>Canopy aims to improve the Amazon window shopping experience. </p>
+			<p>Canopy is an independent company. Amazon is a trademarked brand.</p> 
+			<br>
+			<p>Thanks for stopping by!</p>
+	</div>
 
 </footer>
 </html>

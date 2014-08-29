@@ -1,3 +1,74 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.test-header {
+	height:144px;
+}
+
+.after-group {
+	clear: left;
+}
+
+.box {
+	display:inline-block;
+	width:200px;
+	height:100px;
+	margin: 5px;
+	background:red;
+}
+
+div.user-sandwich {
+	height: 144;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+div.user-header {
+	height: 144px;
+}
+
+div.user-container {
+	height: 144px;
+}
+
+div.user-container .avatar {
+	width: 96px;
+	height: 96px;
+}
+
+div.user-container a {
+	width: 96px;
+	height: 48px;
+	background: #ff1f5e;
+	display: block;
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+	text-decoration: none;
+	color: #FFF;
+	font-family: europa, "Helvetica";
+	font-weight: 300;
+}
+
+div.user-name {
+	float: left;
+	margin-left:20px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+nav.user-nav p {
+	font-size: 24px;
+	text-decoration: none;
+	color: #525252;
+	
+	opacity: 0.7;
+	transition: opacity .3s ease-out;
+	-moz-transition: opacity .3s ease-out;
+	-webkit-transition: opacity .3s ease-out;
+	-o-transition: opacity .3s ease-out;
+	
+	font-family: europa, 'Helvetica';
+	font-weight: strong;
+}

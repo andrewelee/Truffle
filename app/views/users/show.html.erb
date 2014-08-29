@@ -1,30 +1,38 @@
+<div class="user-sandwich">
+<div class="user-header">
+	<div class="user-container">
+		<div class="avatar">
+			<%= image_tag @user.avatar.url(:normal) %>
+		</div>
+		
+		<!--Follow/Edit -->
+		<% if signed_in? %> 
+			<% if current_user.id == @user.id %>
+				<a href="<%= edit_user_url(@user) %>">Edit</a>
+			<% else %>
+			  <%= render partial: "follows/form", locals: {user: @user} %>
+			<% end %>
+		<% end %>
+		
+		<div class="user-name">
+			<h1><%= @user.name %></h1>
+			<p>@<%= @user.username %><p>
+		</div>
+		
+	</div>
+</div>
+</div>
 
-<%= image_tag @user.avatar.url(:normal) %>
+<nav class="user-nav">
 
-<br>
-<%= @user.name %>
-<br>
-@<%= @user.username %>
-<br>
+<p>Likes(<%= @user.likes.length %>)</p>
 
-<!--Follow/Edit -->
-<% if signed_in? %> 
-	<% if current_user.id == @user.id %>
-		<a href="<%= edit_user_url(@user) %>">Edit</a>
-	<% else %>
-	  <%= render partial: "follows/form", locals: {user: @user} %>
-	<% end %>
-<% end %>
+<p>Collections</p>
 
-<br><br>
-Likes(<%= @user.likes.length %>)
+<p>Following(<%= @user.followed_users.length %>)</p>
 
-Collections
-
-Following(<%= @user.followed_users.length %>)
-
-Followers(<%= @user.followers.length %>)
-
+<p>Followers(<%= @user.followers.length %>)</p>
+</nav>
 <br>
 <!--Would like to render different partials -->
 <%= @partial %>

@@ -1,20 +1,20 @@
-<h2>Welcome back, friend.</h2>
+<h2 class="form">Welcome back, friend.</h2>
 
-<form action="<%=session_url%>" method="post">
+<form action="<%=session_url%>" method="post" class="wrapper">
   <%= auth_token %>
 
+	<div class="input">
   <label>
-  email or username
-    <input type="text" name="user[idInput]">
+    <input type="text" name="user[idInput]" placeholder="email or username">
   </label>
-  <br>
+	</div>
 
+	<div class="input">
   <label>
-  password
-    <input type="password" name="user[password]">
+    <input type="password" name="user[password]" placeholder="password">
   </label>
-  <br>
+	</div>
 
-  <button>Log in</button>
+  <button class="sign">Log in</button>
 
 </form>

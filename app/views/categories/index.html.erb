@@ -1,5 +1,9 @@
 <!-- Options for Explore Page -->
-<%= render "shared/shop_options" %>
+<div class="nav-divide">
+	<nav class="content">
+	<%= render "shared/shop_options" %>
+	</nav>
+</div>
 
 <% @categories.each do |category| %>
   <a href="<%= category_url(category) %>"><h2><%= category.name %></h2></a>

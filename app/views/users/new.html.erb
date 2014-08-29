@@ -1,4 +1,5 @@
-<h1>New User</h1>
+<h2 class="form">Sign up and start discovering the</h2>
+<h2 class="form">products you'll like.</h2>
 
 <% if flash[:errors] %>
 	<% flash[:errors].each do |error| %>
@@ -7,38 +8,37 @@
 	<br>
 <% end %>
 
-<form action="<%=users_url%>" method="post" enctype="multipart/form-data">
+
+<form action="<%=users_url%>" method="post" enctype="multipart/form-data" class="wrapper sign-in">
   <%= auth_token %>
 
-  <label>
-  first and last name
-    <input type="text" name="user[name]" value="<%= @user.name %>">
-  </label>
-  <br>
+	<div class="input">
+	  <label for="name">first and last name</label>
+	  <input type="text" id="name" name="user[name]" value="<%= @user.name %>">
+	</div>
 
-  <label>
-  username
-    <input type="text" name="user[username]" value="<%= @user.username %>">
-  </label>
-  <br>
+	<div class="input">
+	  <label for="username">username</label>
+	  <input type="text" id="username" name="user[username]" 
+			value="<%= @user.username %>">
+	</div>
 
-  <label>
-  email
-    <input type="text" name="user[email]" value="<%= @user.email %>">
-  </label>
-  <br>
+	<div class="input">
+	  <label for="email">email</label>
+	  <input type="text" id="email" name="user[email]" value="<%= @user.email %>">
+	</div>
 
-  <label>
-  password
-    <input type="password" name="user[password]">
-  </label>
-  <br>
+	<div class="input">
+		<label for="password">password</label>
+	  <input type="password" id="password" name="user[password]">
+	</div>
 
-  <label>image
-    <input type="file" name="user[avatar]">
-  </label>
+	<div class="input">
+	<label for="image">image</label></div>
+	<input type="file" id="image" name="user[avatar]" class="upload">
+
 
   <br>
-  <button>Sign Up</button>
+  <button class="sign">Sign Up</button>
 
 </form>

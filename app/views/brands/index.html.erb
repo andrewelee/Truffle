@@ -1,5 +1,9 @@
 <!-- Options for Explore Page -->
-<%= render "shared/shop_options" %>
+<div class="nav-divide">
+	<nav class="content">
+	<%= render "shared/shop_options" %>
+	</nav>
+</div>
 
 <% @brands.each do |brand| %>
   <a href="<%= brand_url(brand) %>"><h2><%= brand.name %></h2></a>

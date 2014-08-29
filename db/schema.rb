@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20140828211344) do
     t.string   "name",               null: false
     t.string   "url",                null: false
     t.float    "price",              null: false
+    t.text     "note"
     t.integer  "brand_id"
     t.integer  "category_id"
     t.integer  "finder_user_id",     null: false
