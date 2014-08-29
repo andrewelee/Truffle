@@ -1,35 +1,43 @@
-<!-- Options for Explore Page -->
-<div class="nav-divide">
-	<nav class="content">
-		<%= render "sorts" %>
-	</nav>
-	<nav class="filters">
-		<%= render "filters" %>
-	</nav>
+<section class="products">
+	<div class="wrapper products">
+
+    <!-- Options for Explore Page -->
+    <div class="nav-divide">
+    	<nav class="content">
+    		<%= render "sorts" %>
+    	</nav>
+    	<nav class="filters">
+    		<%= render "filters" %>
+    	</nav>
+
+    </div>
+
+    <section class="products-list group">
+
+    <% @products.each do |product| %>
+
+    	<div class="product-box">
+    		<div class="product-image">
+    			<a href="<%= product_url(product) %>">
+    	      <%= image_tag(product.image.url(:medium)) %>
+    	    </a>
+    		</div>
+
+    		<div class="like-box">
+    	    <% product.likes.each do |like| %>
+    	      <%= link_to image_tag(like.user.avatar.url(:thumb)), user_url(like.user) %>
+    	    <% end %>
+    		</div>
+
+    	</div>
+    <%end%>
+
+
+    </section>
+
+    <%= render "shared/footer" %>
 
 </div>
 
-<section class="products-list group">
-
-<% @products.each do |product| %>
-
-	<div class="product-box">
-		<div class="product-image">
-			<a href="<%= product_url(product) %>">
-	      <%= image_tag(product.image.url(:medium)) %>
-	    </a>
-		</div>
-
-		<div class="like-box">
-	    <% product.likes.each do |like| %>
-	      <%= link_to image_tag(like.user.avatar.url(:thumb)), user_url(like.user)%>
-	    <% end %>
-		</div>
-
-	</div>
-<%end%>
-
 
 </section>
-
-<%= render "shared/footer" %>
