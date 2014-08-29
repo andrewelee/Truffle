@@ -3,49 +3,46 @@
 <head>
   <title>Truffle!</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div class="head">
-	<div class="wrapper">
-		<a href="<%= root_url %>">
-			<img src="/assets/truffle-sign.png">
-		</a>
-	</div>
-</div>
+  <div class="head">
+  	<div class="wrapper">
+  		<a href="<%= root_url %>">
+  			<img src="/assets/truffle-sign.png">
+  		</a>
+  	</div>
+  </div>
 
-<div class="nav-background">
-</div>
+  <div class="nav-background">
+  </div>
 
-<nav class="main-nav">
-	<div class="wrapper">
-		<section class="links">
-			<a href="<%= root_url %>">Explore</a>
-			<a href="<%= categories_url %>">Shop</a>
-		  <% if signed_in? && is_editor?%>
-		  	<a href="<%= new_product_url%>">Add Product</a>
-		  <% end %>
-		</section>
+  <nav class="main-nav">
+  	<div class="wrapper">
+  		<section class="links">
+  			<a href="<%= root_url %>">Explore</a>
+  			<a href="<%= categories_url %>">Shop</a>
+  		  <% if signed_in? && is_editor?%>
+  		  	<a href="<%= new_product_url%>">Add Product</a>
+  		  <% end %>
+  		</section>
 
-		<section class="user-links">
-			<% if signed_in? %>
-			  <a href="<%= user_url(current_user) %>"><img src="/assets/profile-icon.png"></a> | Notifications:
-			<% else %>
-			  <a href="<%= new_session_url %>">Log in</a>
-			  <a href="<%= new_user_url %>">Sign up</a>
-			<% end %>
-		</section>
-	</div>
-</nav>
-
+  		<section class="user-links">
+  			<% if signed_in? %>
+  			  <a href="<%= user_url(current_user) %>"><img src="/assets/profile-icon.png"></a> | Notifications:
+  			<% else %>
+  			  <a href="<%= new_session_url %>">Log in</a>
+  			  <a href="<%= new_user_url %>">Sign up</a>
+  			<% end %>
+  		</section>
+  	</div>
+  </nav>
 
 <%= yield %>
 
-
 </body>
-
-
 
 <footer>
 

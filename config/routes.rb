@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  root to: 'products#index'
+  #Backbone:
+  root to: 'static_pages#root'
+
+  namespace :api do
+    resources :products
+  end
+
+  #Rails:
+  #root to: 'products#index'
 
   resources :users, except: [:index]
 
@@ -20,6 +28,8 @@ Rails.application.routes.draw do
 
   post 'follow' => 'follows#create', as: :follow
   post 'unfollow' => 'follows#destroy', as: :unfollow
+
+  ########
 
   #get 'products/categories', :to => 'products#categories'
 

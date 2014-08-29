@@ -10,10 +10,8 @@
 	<input type="hidden" name="_method" value="patch">
   <%= auth_token %>
 
-  <label>
-  name
-    <input type="text" name="product[name]" value="<%= @product.name %>">
-  </label>
+  <label for="name">name</label>
+    <input type="text" name="product[name]" value="<%= @product.name %>" id="name">
   <br>
 
   <label>
@@ -69,7 +67,7 @@
     </select>
   </label>
   <br>
-	
+
   <label>Image
 		<%= image_tag @product.image.url(:large) %>
     <input type="file" name="product[image]">
