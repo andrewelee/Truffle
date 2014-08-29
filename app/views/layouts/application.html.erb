@@ -2,8 +2,7 @@
 <html>
 <head>
   <title>Truffle!</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -28,7 +27,7 @@
 		  	<a href="<%= new_product_url%>">Add Product</a>
 		  <% end %>
 		</section>
-		
+
 		<section class="user-links">
 			<% if signed_in? %>
 			  <a href="<%= user_url(current_user) %>"><img src="/assets/profile-icon.png"></a> | Notifications:
@@ -56,7 +55,7 @@
 
 	<div class="wrapper">
 			<h1>Prepare to sniff out some amazing products, all available on Amazon.</h1>
-			
+
 			<div class="footer-links">
 				<a href="<%= root_url %>" %>About</a>
 				<% if signed_in? %>
@@ -65,7 +64,7 @@
 			</div>
 			<p>Truffle is a clone of Canopy created for educational and demoing purposes.</p>
 			<p>Canopy aims to improve the Amazon window shopping experience. </p>
-			<p>Canopy is an independent company. Amazon is a trademarked brand.</p> 
+			<p>Canopy is an independent company. Amazon is a trademarked brand.</p>
 			<br>
 			<p>Thanks for stopping by!</p>
 	</div>

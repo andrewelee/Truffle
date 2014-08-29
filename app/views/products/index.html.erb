@@ -6,11 +6,11 @@
 	<nav class="filters">
 		<%= render "filters" %>
 	</nav>
-	
+
 </div>
 
-<section class="products-list">
-	
+<section class="products-list group">
+
 <% @products.each do |product| %>
 
 	<div class="product-box">
@@ -19,17 +19,17 @@
 	      <%= image_tag(product.image.url(:medium)) %>
 	    </a>
 		</div>
-		
+
 		<div class="like-box">
 	    <% product.likes.each do |like| %>
 	      <%= link_to image_tag(like.user.avatar.url(:thumb)), user_url(like.user)%>
 	    <% end %>
 		</div>
-		
+
 	</div>
 <%end%>
 
-  
+
 </section>
 
 <%= render "shared/footer" %>
