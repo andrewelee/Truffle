@@ -9,7 +9,8 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
   tagName: "li",
 
   events: {
-      'click' : 'renderModal'
+      // 'click' : 'renderModal',
+      'click' : 'shuffle'
     },
 
   render: function(){
@@ -18,14 +19,22 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
     return this;
   },
 
+  shuffle: function() {
+
+    console.log(this.collection);
+    this.collection.reset(this.collection.shuffle(), {silent:true});
+    console.log(this.collection);
+    this.render();
+  },
+
   renderModal: function() {
     $("#modal").addClass("is-active");
 
-    $('.modal-content').html(
-      JST['products/modal']({
-        product: this.model
-      })
-    )
+    // $('.modal-content').html(
+    //   JST['products/modal']({
+    //     product: this.model
+    //   })
+    // )
 
     $('.hide-modal').on('click', function() {
       $('#modal').removeClass("is-active");
