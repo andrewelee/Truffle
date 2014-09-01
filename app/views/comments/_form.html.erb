@@ -4,12 +4,13 @@
   <input type="hidden" name="comment[product_id]" value="<%= product.id %>">
 
   <div class="input">
-    <label for="textarea-comment-text">Comment on this product</label>
+    <label for="textarea-comment-text">Share your thoughts:</label>
     <br>
+		<%= image_tag(current_user.avatar.url(:thumb))%>
     <textarea id="textarea-comment-text" name="comment[text]"></textarea>
   </div>
 
   <div class="submit">
-    <button>Comment</button>
+    <button class="comment">Comment</button>
   </div>
 </form>

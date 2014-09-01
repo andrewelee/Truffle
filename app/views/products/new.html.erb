@@ -1,4 +1,4 @@
-<h2>New Product!</h2>
+<h2 class="form">New Product!</h2>
 
 <% if flash[:errors] %>
 	<% flash[:errors].each do |error| %>
@@ -6,29 +6,21 @@
 	<% end %>
 <% end %>
 
-<form action="<%= products_url %>" method="post" enctype="multipart/form-data">
+<form action="<%= products_url %>" method="post" enctype="multipart/form-data" class="wrapper">
   <%= auth_token %>
 
-  <label>
-  name
-    <input type="text" name="product[name]" value="<%= @product.name %>">
-  </label>
-  <br>
+	<div class="input">
+	  <label for="name">product name</label>
+	    <input type="text" name="product[name]" value="<%= @product.name %>">
+	  </label>
 
-  <label>
-  url
+  <label for="url">url</label>
     <input type="text" name="product[url]" value="<%= @product.url %>">
-  </label>
-  <br>
 
-  <label>
-  price
+  <label for="price">price</label>
     <input type="text" name="product[price]" value="<%= @product.price %>">
-  </label>
-  <br>
 
-  <label>
-    brand
+  <label>brand
     <select name="product[brand_id]" value="<%= @product.brand_id %>">
       <option value="blank" selected> </option>
       <% @brands.each do |brand| %>
@@ -38,7 +30,7 @@
 				</option>
       <% end %>
     </select>
-  </label>
+	</label>
   <br>
 
   <label>
@@ -69,16 +61,18 @@
   </label>
   <br>
 	
-  <div class="input">
-    <label for="textarea-comment-text">Editor Note</label>
-    <br>
-    <textarea id="textarea-comment-text" name="product[note]"></textarea>
-  </div>
+  <label for="textarea-comment-text">Editor Note</label>
+  <textarea id="textarea-comment-text" name="product[note]" class="form"></textarea>
+	
 
-  <label>Image
-    <input type="file" name="product[image]">
-  </label>
 
-  <button>Create Product</button>
+	<label for="image">image</label></div>
+	<input type="file" id="image" name="user[avatar]" class="upload">
+		
+
+  <br>
+  <button class="sign">Create Product</button>
+	</div>
+
 
 </form>

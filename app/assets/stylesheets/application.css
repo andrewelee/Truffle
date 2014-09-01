@@ -111,7 +111,7 @@ nav.main-nav img:hover {
 	opacity: 1;
 }
 
-/* YIELD */
+/* NAV BAR */
 
 .nav-divide {
 	height: 96px;
@@ -165,11 +165,34 @@ nav.filters {
   display: block;
 }
 
+/* -- Editor Buttons -- */
+
+.editor {
+	float: right;
+}
+
+.editor a {
+	padding: 10px 20px;
+	border: 3px solid #000;
+	text-decoration: none;
+	font-size: 13;
+	font-family: europa, 'Helvetica';
+	color: #000;
+	transition: 0.3s;
+
+}
+
+.editor a:hover {
+	opacity: 1;
+	background: #000;
+	color: #FFF;
+}
+
 /* Products Related Stuff */
 
 h2.product-show {
   margin: 0 auto;
-  font-style: europa, "helvetica";
+  font-family: europa, 'Helvetica';
   font-size: 30px;
   text-align: center;
 }
@@ -188,11 +211,35 @@ div.product-box {
   margin-bottom: 30px;
 	width: 30%;
 	height: 383px;
-	background: #FF8500;
+	background: #FFA540; /* #FF8500, #FF8700 */
   position: relative;
+	box-shadow: 0 4px 1px -2px rgba(0,0,0,0.15);
 }
 
-div.product-price {
+div.product-price a {
+	z-index: 500;
+	background: #00FAAA;
+  color: #fff;
+	font-size: 20px;
+  font-weight: 500;
+  font-family: europa, "helvetica";
+  text-decoration: none;
+  width:70px;
+  height:40px;
+  position:absolute;
+  right:0px;
+  top:0px;
+  transition: 0.2s;
+  text-align: center;
+	line-height: 40px;
+}
+
+div.product-price a:hover {
+	width: 100px;
+	background: #000;
+}
+
+/*div.product-price {
   background: #00FAAA;
   width:70px;
   height:40px;
@@ -203,23 +250,47 @@ div.product-price {
   text-align: center;
 }
 
+div.product-price:hover {
+  background: #000;
+	width: 100px;
+}
+
 div.product-price a {
   color: #fff;
   font-weight: 500;
   font-family: europa, "helvetica";
   text-decoration: none;
-}
+}*/
 
 div.product-image {
 	background: #FFF;
 	height: 335px;
 	text-align: center;
 	width: 100%;
+  cursor: pointer;
+}
+
+div.bg{
+
+	position:absolute;
+	z-index: 999;
+  width:100%;
+  height:336px;
+	transition: 0.3s;
+	opacity:0;
+}
+
+div.bg:hover {
+  width:100%;
+  height:335px;
+  background-color:#000;
+  opacity:0.15;
 }
 
 div.product-image img {
 	max-height:100%;
 	max-width:100%;
+  margin-top: 50px;
 }
 
 div.like-box {
@@ -235,6 +306,16 @@ div.like-box img {
 
 div.like-count {
   float: right;
+	text-align: center;
+	line-height: 3;
+	font-size: 16px;
+	font-family: europa, 'Helvetica';
+	width: 48px;
+	height: 48px;
+	opacity: 0.7;
+	background: #000;
+	color: #FFF;
+
 }
 
 div.load-more {
@@ -250,6 +331,7 @@ div.load-more {
 	padding: 25px 0;
 	margin-left: -100%;
 	margin-right: -100%;
+	line-height: 25px;
 }
 
 div.load-more:hover {
@@ -281,6 +363,11 @@ footer a:hover {
 	text-decoration: underline;
 }
 
+footer a.canopy-link {
+	font-size: 15px;
+	color: blue;
+}
+
 footer h1 {
 	font-weight: 300;
 	font-family: europa, 'Helvetica';
@@ -308,6 +395,11 @@ h2.form {
 	font-size: 40px;
 	font-weight: 300;
 	font-family: europa, 'Helvetica';
+}
+
+.avatar {
+	margin: auto;
+	width:96px;
 }
 
 form.wrapper {
@@ -347,6 +439,7 @@ button.sign {
 	font-weight: 300;
 	outline: none;
 	transition: 0.2s;
+
 }
 
 button.sign:hover {
@@ -367,5 +460,124 @@ button.sign:hover {
 	text-align: left;
 }
 
+input.upload {
+	font-family: 'ITC Avant Garde Gothic W04','AvantGardeGothicITCW01D 731075','AvantGardeGothicITCW01Dm','Helvetica','sans-serif';
+	margin-bottom: 20px;
+}
 
+textarea.form {
+	padding: 10px;
+	font-size: 16px;
+	font-family: europa, 'Helvetica';
+	font-weight: 300;
+	height: 100px;
+	width: 300px;
+  resize: none;
+	outline: none;
+	background: #D2D2D2;
+	margin-bottom: 20px;
+	border: none;
+}
+
+textarea.form:focus {
+	background: #E1E1E1;
+}
+
+.input textarea {
+	margin-left: 10px;
+	height: 24px;
+	width: 700px;
+	outline: none;
+	border: none;
+	background: #D2D2D2;
+	resize: none;
+	padding: 12px;
+	font-size: 18px;
+	font-weight: 500;
+	font-family: europa, 'Helvetica';
+	color: #525252;
+	-webkit-font-smoothing: antialiased;
+}
+
+.input textarea:focus {
+	background: #E1E1E1;
+}
+
+button.comment {
+	margin: 10px 0;
+	margin-bottom: 30px;
+	width: 130px;
+	height: 54px;
+	background: #aaa;
+	font-size: 20px;
+	font-family: europa, 'Helvetica';
+	color: #FFF;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	outline: none;
+	transition: 0.2s;
+}
+
+button.comment:hover {
+	background: #888;
+}
+
+.divider {
+	height: 2px;
+	background: #E1E1E1;
+	margin-bottom: 30px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+}
+
+.modal.is-active {
+  display: block;
+}
+
+.modal-content {
+  position: absolute;
+  z-index: 1000;
+  background: #fff;
+  top: 50%;
+  left: 50%;
+
+  width: 400px;
+  min-height: 300px;
+  padding: 50px;
+
+  margin-left: -250px;
+  margin-top: -200px;
+
+  border-radius: 25px;
+}
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  transition: 0.3s;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-close:hover {
+  color: #333;
+}
 

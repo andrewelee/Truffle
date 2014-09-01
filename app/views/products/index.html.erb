@@ -1,5 +1,5 @@
 <section class="products">
-	<div class="wrapper products">
+	<!-- <div class="wrapper products"> -->
 
     <!-- Options for Explore Page -->
     <div class="nav-divide">
@@ -20,7 +20,9 @@
         <div class="product-price">
           <a href="<%= product.url %>">$<%= product.price.round %></a>
         </div>
+
     		<div class="product-image">
+					<!-- <div class="product-image bg"></div> -->
     			<a href="<%= product_url(product) %>">
     	      <%= image_tag(product.image.url(:medium)) %>
     	    </a>
@@ -30,6 +32,7 @@
     	    <% product.likes.each do |like| %>
     	      <%= link_to image_tag(like.user.avatar.url(:thumb)), user_url(like.user) %>
     	    <% end %>
+					<div class="like-count"><%= product.likes.length %></div>
     		</div>
 
     	</div>
@@ -40,7 +43,7 @@
 
     <%= render "shared/footer" %>
 
-</div>
+<!-- </div> -->
 
 
 </section>

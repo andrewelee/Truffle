@@ -1,7 +1,7 @@
 <div class="user-sandwich">
 <div class="user-header">
 	<div class="user-container">
-		<div class="avatar">
+		<div class="user-avatar">
 			<%= image_tag @user.avatar.url(:normal) %>
 		</div>
 
@@ -40,14 +40,6 @@
   </section>
 </section>
 
-<!-- <% @user.liked_products.each do |product| %>
-  <%= link_to image_tag(product.image.url(:medium)), product_url(product)%>
-  <br>
-  <% product.user_likes.each do |liker| %>
-    <%= link_to image_tag(liker.avatar.url(:thumb)), user_url(liker)%>
-  <% end %>
-  <br>
-<% end %> -->
 
 <h3>Following</h3>
 <% @user.followed_users.each do |followed| %>

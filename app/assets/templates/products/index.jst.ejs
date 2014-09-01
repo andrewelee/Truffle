@@ -1,0 +1,27 @@
+<section class="products">
+
+<h1>Products</h1>
+
+  <section class="products-list group">
+    <ul>
+      <% products.each(function(product) { %>
+        <li>
+
+        	<div class="product-box">
+            <div class="product-price">
+              <a href="<%= product.escape("url") %>">
+                $<%= Math.round(product.escape("price")) %>
+              </a>
+            </div>
+
+            <div class="product-image" id="<%= product.id %>">
+              <img src="<%= product.get("imageSmall") %>">
+            </div>
+          </div>
+
+        </li>
+      <% }) %>
+    </ul>
+  </section>
+
+</section>

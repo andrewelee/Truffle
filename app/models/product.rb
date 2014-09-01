@@ -1,8 +1,6 @@
 class Product < ActiveRecord::Base
   validates :name, :url, presence: true
 
-  #
-
   has_attached_file :image, :styles => {
     :large => "422x464>",
     :medium => "341x335>",

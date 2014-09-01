@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
   #Backbone:
-  # root to: 'static_pages#root'
+  root to: 'static_pages#root'
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     resources :products
   end
 
   #Rails:
-  root to: 'products#index'
+  #root to: 'products#index'
 
   resources :users, except: [:index]
 

@@ -5,13 +5,29 @@ Truffle.Routers.Products = Backbone.Router.extend({
   },
 
   routes: {
-    'products/:id' : 'show'
+    "" : "index",
+    'products' : 'index',
+    'products/:id' : 'show',
+    'products/category' : 'category'
+
+  },
+  index: function(){
+    console.log("index");
+    var productsIndex = new Truffle.Views.ProductsIndex({collection: this.products});
+    this._swapView(productsIndex);
   },
 
   show: function(id){
     var product = this.products.get({id: id});
-    var productView = new Truffle.Views.ProductShow({model: product});
-    this.$element.html(productView.render().$el);
+    var productShow = new Truffle.Views.ProductShow({model: product});
+    this._swapView(productShow);
+  },
+
+  _swapView: function(newView) {
+    this._currentView && this._currentView.remove();
+    this._currentView = newView;
+
+    $("#content").html(newView.render().$el);
   }
 
 });

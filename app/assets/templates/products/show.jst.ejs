@@ -1,4 +1,13 @@
-<h1><%= product.get("name")%></h1>
+<h2 class="product-show"><%= product.escape("name") %></h2>
 
-<%= product.get("name") %>
-<%= product.get('image_url') %>
+  <img src="<%= product.get("imageLarge") %>">
+
+  <a href="<%= product.escape("url") %>">
+    $<%= Math.round(product.escape("price")) %>
+  </a>
+
+  Likes:
+  <img src="<%= product.attributes.finder.image %>">
+
+  Found by:
+  <a href='#/user/<%= product.attributes.finder.id %>'>@<%= product.attributes.finder.username %>

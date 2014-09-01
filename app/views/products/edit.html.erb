@@ -1,4 +1,5 @@
-<h2>Edit Product: <%= @product.name %></h2>
+<h2 class="form">Edit Product:</h2>
+<h2 class="form"> <%= @product.name %></h2>
 
 <% if flash[:errors] %>
 	<% flash[:errors].each do |error| %>
@@ -6,28 +7,28 @@
 	<% end %>
 <% end %>
 
-<form action="<%= product_url(@product) %>" method="post" enctype="multipart/form-data">
+<form action="<%= product_url(@product) %>" method="post" enctype="multipart/form-data" class="wrapper">
 	<input type="hidden" name="_method" value="patch">
   <%= auth_token %>
 
-  <label for="name">name</label>
-    <input type="text" name="product[name]" value="<%= @product.name %>" id="name">
-  <br>
+	<div class="input">
+	  <label for="name">name</label>
+	  <input type="text" name="product[name]" value="<%= @product.name %>" id="name">
+  </div>
 
-  <label>
-  url
+	<div class="input">
+	  <label for="url">url</label>
     <input type="text" name="product[url]" value="<%= @product.url %>">
-  </label>
-  <br>
+	</div>
 
-  <label>
-  price
+	<div class="input">
+	  <label for="price">price</label>
     <input type="text" name="product[price]" value="<%= @product.price %>">
-  </label>
-  <br>
+	</div>
 
+	<div class="input">
   <label>
-    brand
+		brand
     <select name="product[brand_id]" value="<%= @product.brand_id %>">
       <option value="blank" selected> </option>
       <% @brands.each do |brand| %>
@@ -37,9 +38,10 @@
 				</option>
       <% end %>
     </select>
-  </label>
-  <br>
+	</label>
+  </div>
 
+	<div class="input">
   <label>
     category
     <select name="product[category_id]" value="<%= @product.category_id %>">
@@ -52,8 +54,9 @@
       <% end %>
     </select>
   </label>
-  <br>
+	</div>
 
+	<div class="input">
   <label>
     finder
     <select name="product[finder_user_id]">
@@ -66,13 +69,16 @@
       <% end %>
     </select>
   </label>
-  <br>
+	</div>
 
+	<div class="input">
   <label>Image
+	</div>
 		<%= image_tag @product.image.url(:large) %>
     <input type="file" name="product[image]">
   </label>
 
-  <button>Edit Product</button>
+	<br>
+  <button class="comment">Edit Product</button>
 
 </form>

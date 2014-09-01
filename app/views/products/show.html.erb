@@ -1,10 +1,11 @@
 <h2 class="product-show"><%= @product.name %></h2>
 
 <% if signed_in? && is_editor?%>
-Editor Commands:
 <br>
-	<a href="<%= edit_product_url(@product)%>">Edit</a>
-	<%= link_to "Delete", product_url, method: :delete %>
+	<div class="editor">
+	<a href="<%= edit_product_url(@product)%>">EDIT</a>
+	<%= link_to "DELETE", product_url, method: :delete %>
+	</div>
 <% end %>
 
 <br>
@@ -38,5 +39,7 @@ Found by
 <section class="comments">
   <%= render partial: "comments/comment", collection: @product.comments %>
   <br>
-  <%= render partial: "comments/form", locals: {product: @product} %>
+  <% if signed_in?%>
+    <%= render partial: "comments/form", locals: {product: @product} %>
+  <% end %>
 </section>

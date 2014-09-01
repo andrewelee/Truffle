@@ -3,7 +3,7 @@ class Api::ProductsController < ApplicationController
   def index
     @products = Product.all.includes(likes: :user)
 
-    render json: @products
+    render :index
   end
 
   def show
