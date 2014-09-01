@@ -13,7 +13,15 @@ json.finder do |json|
   json.image product.finder.avatar.url(:thumb)
 end
 
-json.likes product.likes, :id, :user_id
-json.likerAvatars product.user_likes
+# json.likes product.likes, :id, :user_id
 
-json.comments product.comments, :id, :text
+json.userLikes product.user_likes.each do |user|
+  json.id user.id
+  json.image user.avatar.url(:thumb)
+end
+
+json.comments product.comments do |comment|
+  json.id comment.user_id
+  json.text comment.text
+  json.image comment.user.avatar.url(:thumb)
+end

@@ -12,7 +12,6 @@ Truffle.Routers.Products = Backbone.Router.extend({
 
   },
   index: function(){
-    console.log("index");
     var productsIndex = new Truffle.Views.ProductsIndex({collection: this.products});
     this._swapView(productsIndex);
   },

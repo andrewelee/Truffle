@@ -15,10 +15,18 @@
             </div>
 
             <div class="product-image" data-id="<%= product.id %>">
-              <img src="<%= product.get("imageSmall") %>">
+              <img src="<%= product.escape("imageSmall") %>">
             </div>
-          </div>
 
+          	<div class="like-box">
+              <% _(product.get('userLikes')).each(function(user) { %>
+                <a href="/users/<%= user.id %>">
+                  <img src="<%= user.image %>">
+                </a>
+              <% }) %>
+          	</div>
+
+          </div>
         </li>
       <% }) %>
     </ul>
