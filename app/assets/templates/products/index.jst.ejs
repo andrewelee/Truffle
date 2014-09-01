@@ -15,7 +15,8 @@
             </div>
 
             <div class="product-image" data-id="<%= product.id %>">
-              <img src="<%= product.escape("imageSmall") %>">
+              <img src="<%= product.escape("imageSmall") %>"
+              data-id="<%= product.id %>">
             </div>
 
           	<div class="like-box">
