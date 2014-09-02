@@ -1,2 +1,27 @@
-<h2 class="product-show">Product Name:</h2>
+<span class="modal-close hide-modal">&times;</span>
 
+  <section class="modal-image">
+    <img src="<%= product.escape("imageLarge") %>" class="image">
+	</section>
+	
+	<section class="modal-info">
+		<h2 class="product-show"><%= product.escape('name') %></h2>
+
+		<a href="<%= product.escape("url") %>" class="price">
+			$<%= Math.round(product.escape("price")) %> on Amazon
+		</a>
+		
+		<div class="likes">
+	    <% _(product.get('userLikes')).each(function(user) { %>
+	      <a href="/users/<%= user.id %>">
+	        <img src="<%= user.image %>">
+	      </a>
+	    <% }) %>
+		</div>
+		
+		Found by: 
+		<a href="/users/<%= product.attributes.finder.user_id %>">
+			@<%= product.attributes.finder.username %>
+		</a>
+		
+	</section>

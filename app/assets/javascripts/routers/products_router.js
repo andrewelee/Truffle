@@ -1,4 +1,4 @@
-Truffle.Routers.Products = Backbone.Router.extend({
+Truffle.Routers.AppRouter = Backbone.Router.extend({
   initialize: function(products, element){
     this.products = products;
     this.$element = $(element);
@@ -6,9 +6,10 @@ Truffle.Routers.Products = Backbone.Router.extend({
 
   routes: {
     "" : "index",
-    'products' : 'index',
-    'products/:id' : 'show',
-    'products/category' : 'category'
+    "products" : "index",
+    "products/:id" : "show",
+		"users/:id": "userShow",
+    "products/category" : "category"
 
   },
   index: function(){
@@ -21,6 +22,14 @@ Truffle.Routers.Products = Backbone.Router.extend({
     var productShow = new Truffle.Views.ProductShow({model: product});
     this._swapView(productShow);
   },
+	
+	userShow: function (id) {
+		var userShowView = new Truffle.Views.UserShow({
+			user: Truffle.users.getOrFetch(id)
+		});
+	
+		this._swapViews(userShowView);
+	},
 
   _swapView: function(newView) {
     this._currentView && this._currentView.remove();

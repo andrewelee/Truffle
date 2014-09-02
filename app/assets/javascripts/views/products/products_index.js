@@ -33,14 +33,17 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
     console.log(id)
 
     $("#modal").addClass("is-active");
+		
+	  $("body").addClass("modal-open");
 
     $('.modal-content').html(
       JST['products/modal']({
-        product: product
+        product: this.collection.get(id)
       })
     )
 
     $('.hide-modal').on('click', function() {
+			$("body").removeClass("modal-open")
       $('#modal').removeClass("is-active");
     })
 

@@ -11,7 +11,7 @@ window.Truffle = {
           var productsIndex = new Truffle.Views.ProductsIndex({collection: products});
           var element = $('#content');
 
-          new Truffle.Routers.Products(products, element);
+          new Truffle.Routers.AppRouter(products, element);
           Backbone.history.start();
         }
       });
