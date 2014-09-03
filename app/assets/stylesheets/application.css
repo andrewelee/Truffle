@@ -28,6 +28,11 @@ body {
 	background: #F2F2F2;
 }
 
+body.modal-open {
+/*    overflow: hidden;*/
+
+}
+
 .head {
 	height: 100px;
 	background: #FFF;
@@ -525,7 +530,7 @@ button.comment:hover {
 }
 
 .modal-content {
-	position: fixed;
+	position: absolute;
 	z-index: 1000;
 	background: #fff;
 	top: 50%;
@@ -535,8 +540,7 @@ button.comment:hover {
 	padding: 50px;
 	margin-left: -500px;
 	margin-top: -200px;
-  overflow-y:scroll;
-	/*border-radius: 25px;*/
+  overflow: visible;
 }
 
 .modal-image {
@@ -636,5 +640,64 @@ button.comment:hover {
 
 .modal-close:hover {
   color: #333;
+}
+
+.modal-content.like {
+  position: absolute;
+  z-index: 1000;
+  background: #fff;
+  top: 50%;
+  left: 50%;
+
+  width: 400px;
+  min-height: 300px;
+  padding: 50px;
+
+  margin-left: -250px;
+  margin-top: -200px;
+}
+
+.modal-content.like p {
+  padding-left: 50px;
+  font-family: europa, 'Helvetica';
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.modal-content.like li {
+  padding-left: 50px;
+  display: block;
+  height: 48px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.modal-content img {
+  float: left;
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+.modal-content .user-info {
+  float: left;
+  margin-left: 20px;
+  display: block;
+}
+
+.modal-content h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.modal-content h1:hover {
+  text-decoration:underline;
+}
+
+.modal-content h2 {
+  font-size: 18px;
+  font-weight: 300;
+  color: #999;
 }
 

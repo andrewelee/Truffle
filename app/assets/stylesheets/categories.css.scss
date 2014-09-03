@@ -17,7 +17,6 @@ section .categories-list{
 }
 
 .category-container h2 {
-  text-align: left;
   padding: 15px;
   font-size: 24px;
   font-family: europa, 'Helvetica';
@@ -25,12 +24,15 @@ section .categories-list{
   font-weight: 500;
   color: #bbb;
   border-bottom: 1px solid #F2F2F2;
-  transition: 0.2s;
+  transition: 0.3s;
+  opacity: 0.7;
 }
 
 .category-container h2:hover {
   color: #888;
   background: #ccc;
+  padding-left: 45%;
+  opacity: 1;
 }
 
 .category-product {

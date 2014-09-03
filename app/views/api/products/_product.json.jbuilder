@@ -18,6 +18,8 @@ end
 json.userLikes product.user_likes.each do |user|
   json.id user.id
   json.image user.avatar.url(:thumb)
+  json.name user.name
+  json.username user.username
 end
 
 json.comments product.comments do |comment|

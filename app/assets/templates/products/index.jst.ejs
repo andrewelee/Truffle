@@ -23,7 +23,10 @@
                   <img src="<%= user.image %>">
                 </a>
               <% }) %>
-							<div class="like-count"><%= product.attributes.userLikes.length %></div>
+
+							<div class="like-count" data-id="<%= product.id %>">
+                <%= product.attributes.userLikes.length %>
+              </div>
           	</div>
 
           </div>

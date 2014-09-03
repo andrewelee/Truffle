@@ -1,11 +1,18 @@
 <span class="modal-close hide-modal">&times;</span>
 
 <ul class="likes-modal">
+
+  <p><%= product.get('userLikes').length %> likes:</p>
+
   <% _(product.get('userLikes')).each(function(user) { %>
     <li>
       <a href="/users/<%= user.id %>">
-        <img src="<%= user.image %>"> <%= user.name %>
+        <img src="<%= user.image %>">
       </a>
+      <div class="user-info">
+        <h1><%= user.name %></h1>
+        <h2>@<%= user.username %></h2>
+      </div>
     </li>
   <% }) %>
 </ul>

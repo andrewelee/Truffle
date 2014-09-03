@@ -32,7 +32,7 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
 	  $("body").addClass("modal-open");
 
     $('.modal-content').html(
-      JST['products/modal']({
+      JST['products/product-modal']({
         product: this.collection.get(id)
       })
     )
@@ -50,11 +50,14 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
     product.fetch();
 
     $("#modal").addClass("is-active");
+    $('.modal-content').addClass("like");
 
+    //hoping to prevent background scroll during modal:
 	  $("body").addClass("modal-open");
 
+
     $('.modal-content').html(
-      JST['products/modal']({
+      JST['products/likers-modal']({
         product: this.collection.get(id)
       })
     )

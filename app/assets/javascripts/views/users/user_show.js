@@ -1,4 +1,8 @@
 Truffle.Views.UserShow = Backbone.View.extend({
+  initialize:
+    function() {
+      $('#modal').removeClass("is-active");
+    },
 
   template: JST['users/show'],
 
