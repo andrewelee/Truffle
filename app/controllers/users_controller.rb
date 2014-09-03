@@ -22,8 +22,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @product =
-    #@partial = @user.id
     render :show
   end
 

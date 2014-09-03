@@ -1,8 +1,8 @@
-<section class="products">
+<section class="brand">
 
   <section class="products-list group">
     <ul>
-      <% products.each(function(product) { %>
+      <% brand.attributes.products.each(function(product) { %>
         <li>
 
         	<div class="product-box">
@@ -19,7 +19,7 @@
 
           	<div class="like-box">
               <% _(product.get('userLikes')).each(function(user) { %>
-                <a href="#/users/<%= user.id %>">
+                <a href="/users/<%= user.id %>">
                   <img src="<%= user.image %>">
                 </a>
               <% }) %>

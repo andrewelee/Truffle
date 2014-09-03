@@ -4,11 +4,15 @@ window.Truffle = {
   Views: {},
   Routers: {},
   initialize: function() {
-    //alert("hi");
+
+    Truffle.users = new Truffle.Collections.Users();
+    Truffle.users.fetch();
+
     var products = new Truffle.Collections.Products();
       products.fetch({
         success: function(){
           var productsIndex = new Truffle.Views.ProductsIndex({collection: products});
+
           var element = $('#content');
 
           new Truffle.Routers.AppRouter(products, element);

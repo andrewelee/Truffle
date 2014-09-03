@@ -1,0 +1,25 @@
+<div class="user-sandwich">
+  <div class="user-header">
+  	<div class="user-container">
+
+  		<div class="user-avatar">
+  			<img src="<%= user.escape("image") %>">
+  		</div>
+
+    	<div class="user-name">
+    		<h1><%= user.escape('name') %></h1>
+    		<p>@<%= user.escape('username') %><p>
+    	</div>
+
+  	</div>
+  </div>
+</div>
+
+<nav class="user-nav">
+  <p>Likes(<%= user.attributes.likedProducts.length %>)</p>
+  <!-- <p>Collections</p> -->
+  <p>Following(<%= user.attributes.followedUsers.length %>)</p>
+  <p>Followers(<%= user.attributes.followers.length %>)</p>
+</nav>
+
+<br>

@@ -1,0 +1,25 @@
+<section class="categories">
+
+  <section class="categories-list group">
+    <ul>
+      <% categories.each(function(category) { %>
+        <li>
+        	<div class="category-container">
+            <a href="#/categories/<%= category.id %>">
+              <h2><%= category.escape("name") %></h2>
+            </a>
+
+            <% _(category.attributes.products.slice(0,5)).each(function(product) { %>
+              <div class="category-product">
+                <img src="<%= product.imageSmall %>">
+              </div>
+            <% }) %>
+
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+
+  </section>
+
+</section>

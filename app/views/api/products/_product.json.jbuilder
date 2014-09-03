@@ -22,6 +22,8 @@ end
 
 json.comments product.comments do |comment|
   json.id comment.user_id
+  json.username comment.user.username
   json.text comment.text
   json.image comment.user.avatar.url(:thumb)
+  json.timestamp comment.created_at
 end

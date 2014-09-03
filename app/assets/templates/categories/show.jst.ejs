@@ -1,0 +1,26 @@
+<section class="category">
+
+  <section class="products-list group">
+    <ul>
+      <% _(category.attributes.products).each(function(product) { %>
+        <li>
+
+        	<div class="product-box">
+            <div class="product-price">
+              <a href="<%= product.url %>">
+                $<%= Math.round(product.price) %>
+              </a>
+            </div>
+
+            <div class="product-image" data-id="<%= product.id %>">
+              <img src="<%= product.imageSmall %>"
+              data-id="<%= product.id %>">
+            </div>
+
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </section>
+
+</section>

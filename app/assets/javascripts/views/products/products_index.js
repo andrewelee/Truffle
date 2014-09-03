@@ -1,16 +1,14 @@
 Truffle.Views.ProductsIndex = Backbone.View.extend({
 
   initialize: function() {
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "sync change reset", this.render);
   },
 
   template: JST['products/index'],
 
-  // tagName: "li",
-
   events: {
-      'click .product-image' : 'renderModal'
-      // 'click' : 'shuffle'
+      'click .product-image' : 'renderProduct',
+      'click .like-count' : 'renderLikes'
     },
 
   render: function(){
@@ -20,20 +18,39 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
   },
 
   shuffle: function() {
-
     this.collection.reset(this.collection.shuffle(), {silent:true});
     this.render();
   },
 
-  renderModal: function() {
+  renderProduct: function() {
     var id = $(event.target).attr('data-id');
     var product = new Truffle.Models.Product({id: id});
     product.fetch();
 
-    console.log(id)
+    $("#modal").addClass("is-active");
+
+	  $("body").addClass("modal-open");
+
+    $('.modal-content').html(
+      JST['products/modal']({
+        product: this.collection.get(id)
+      })
+    )
+
+    $('.hide-modal').on('click', function() {
+			$("body").removeClass("modal-open")
+      $('#modal').removeClass("is-active");
+    })
+
+  },
+
+  renderLikes: function() {
+    var id = $(event.target).attr('data-id');
+    var product = new Truffle.Models.Product({id: id});
+    product.fetch();
 
     $("#modal").addClass("is-active");
-		
+
 	  $("body").addClass("modal-open");
 
     $('.modal-content').html(

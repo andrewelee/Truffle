@@ -1,0 +1,53 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+section .categories-list{
+  margin-top: 50px;
+}
+
+.category-container {
+  background: #fff;
+  width: 90%;
+  height: 275px;
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+  box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15);
+}
+
+.category-container h2 {
+  text-align: left;
+  padding: 15px;
+  font-size: 24px;
+  font-family: europa, 'Helvetica';
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  color: #bbb;
+  border-bottom: 1px solid #F2F2F2;
+  transition: 0.2s;
+}
+
+.category-container h2:hover {
+  color: #888;
+  background: #ccc;
+}
+
+.category-product {
+  float:left;
+  width: 20%;
+  height: 220px;
+  text-align: center;
+}
+
+.category-product img{
+	max-height:75%;
+	max-width:75%;
+  padding-top: 25px;
+}
+
+//Show
+
+section.category {
+  margin-top: 50px;
+}

@@ -9,6 +9,9 @@
 </head>
 <body>
 
+<!-- current-user -->
+<%= render partial: "layouts/current_user" %>
+
 <!-- Modal -->
 
   <div id="modal" class="modal">
@@ -21,41 +24,11 @@
 
   </div>
 
+<!-- Nav Bar -->
+
+<%= render partial: "layouts/header" %>
+
 <!-- Content -->
-
-  <div class="head">
-  	<div class="wrapper">
-  		<a href="<%= root_url %>">
-  			<img src="<%= asset_path("truffle-sign.png") %>">
-  		</a>
-  	</div>
-  </div>
-
-  <div class="nav-background">
-  </div>
-
-  <nav class="main-nav">
-  	<div class="wrapper">
-  		<section class="links">
-  			<a href="<%= root_url %>">Explore</a>
-  			<a href="<%= categories_url %>">Shop</a>
-  		  <% if signed_in? && is_editor?%>
-  		  	<a href="<%= new_product_url%>">Add Product</a>
-  		  <% end %>
-  		</section>
-
-  		<section class="user-links">
-  			<% if signed_in? %>
-  			  <a href="<%= user_url(current_user) %>">
-            <img src="<%= asset_path("profile-icon.png") %>">
-          </a> | Notifications(?)
-  			<% else %>
-  			  <a href="<%= new_session_url %>">Log in</a>
-  			  <a href="<%= new_user_url %>">Sign up</a>
-  			<% end %>
-  		</section>
-  	</div>
-  </nav>
 
 <div class="yield wrapper">
 	<%= yield %>

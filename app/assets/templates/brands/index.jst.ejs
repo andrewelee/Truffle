@@ -1,0 +1,22 @@
+<section class="brands">
+
+<h1>Brands</h1>
+
+  <section class="brands-list group">
+    <ul>
+      <% categories.each(function(category) { %>
+        <li>
+        	<div class="brand-container">
+            <%= brand.get("name") %>
+
+            <% brand.attributes.products.slice(0,5).each(function(product){%>
+              <%= product.get("name") %>
+            <% }) %>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+
+  </section>
+
+</section>

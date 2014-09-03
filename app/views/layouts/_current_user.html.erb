@@ -1,0 +1,5 @@
+<% if signed_in? %>
+  <div class="current-user" data-id="<%=current_user.id%>"></div>
+<% else %>
+  <div class="current-user" data-id="0"></div>
+<% end %>
