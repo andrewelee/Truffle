@@ -23,6 +23,7 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
   },
 
   renderProduct: function() {
+    event.preventDefault();
     var id = $(event.target).attr('data-id');
     var product = new Truffle.Models.Product({id: id});
     product.fetch();
@@ -65,6 +66,7 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
     $('.hide-modal').on('click', function() {
 			$("body").removeClass("modal-open")
       $('#modal').removeClass("is-active");
+      $('.modal-content').removeClass("like");
     })
 
   },

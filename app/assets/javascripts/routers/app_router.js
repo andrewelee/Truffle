@@ -42,8 +42,10 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
 
     this.categories.fetch();
     var category = this.categories.get({id: id});
+
     var categoryShow = new Truffle.Views.CategoryShow({
-      model: category
+      model: category,
+      collection: this.products
       })
 
     this._swapView(categoryShow)

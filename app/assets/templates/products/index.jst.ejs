@@ -12,7 +12,11 @@
               </a>
             </div>
 
+
             <div class="product-image" data-id="<%= product.id %>">
+              <a href="#/products/<%= product.id %>">
+                <div class="product-image bg" data-id="<%= product.id %>"></div>
+              </a>
               <img src="<%= product.escape("imageSmall") %>"
               data-id="<%= product.id %>">
             </div>

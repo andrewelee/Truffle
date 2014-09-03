@@ -6,13 +6,19 @@
 
   <% _(product.get('userLikes')).each(function(user) { %>
     <li>
-      <a href="/users/<%= user.id %>">
+      <a href="#/users/<%= user.id %>">
         <img src="<%= user.image %>">
       </a>
+
       <div class="user-info">
-        <h1><%= user.name %></h1>
+        <h1>
+          <a href="#/users/<%= user.id %>">
+            <%= user.name %>
+          </a>
+        </h1>
         <h2>@<%= user.username %></h2>
       </div>
+
     </li>
   <% }) %>
 </ul>
