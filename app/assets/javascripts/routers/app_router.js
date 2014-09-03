@@ -12,7 +12,8 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
 		"users/:id": "userShow",
     "categories" : "categoriesIndex",
     "categories/:id" : "categoryShow",
-    "brands" : "brands"
+    "brands" : "brandsIndex",
+    "brands/:id" : "brandShow"
   },
 
   index: function(){
@@ -24,7 +25,11 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
   },
 
   brandsIndex: function(){
-    var brandsIndex = new Truffle.Views.BrandsIndex()
+    var brands = new Truffle.Collections.Brands();
+    brands.fetch();
+    var brandsIndex = new Truffle.Views.BrandsIndex({
+      collection: brands
+    })
     this._swapView(brandsIndex)
   },
 
@@ -41,6 +46,7 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
   categoryShow: function(id){
 
     this.categories.fetch();
+    console.log(this.categories);
     var category = this.categories.get({id: id});
 
     var categoryShow = new Truffle.Views.CategoryShow({

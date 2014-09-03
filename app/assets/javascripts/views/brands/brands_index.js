@@ -1,6 +1,7 @@
 Truffle.Views.BrandsIndex = Backbone.View.extend({
 
   initialize: function() {
+    console.log(this.collection);
     this.listenTo(this.collection, "sync change reset", this.render);
   },
 

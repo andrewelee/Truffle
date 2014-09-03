@@ -4,13 +4,14 @@
     <ul>
       <% categories.each(function(category) { %>
         <li>
-        	<div class="category-container">
+        	<div class="category-container group">
             <a href="#/categories/<%= category.id %>">
               <h2><%= category.escape("name") %></h2>
             </a>
 
             <% _(category.attributes.products.slice(0,5)).each(function(product) { %>
               <div class="category-product">
+                <div class="category-overlay"></div>
                 <img src="<%= product.imageSmall %>">
               </div>
             <% }) %>

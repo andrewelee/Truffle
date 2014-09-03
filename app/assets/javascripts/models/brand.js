@@ -1,3 +1,3 @@
-Truffle.Models.Category = Backbone.Model.extend({
-  urlRoot: "/api/categories"
+Truffle.Models.Brand = Backbone.Model.extend({
+  urlRoot: "/api/brands"
 });

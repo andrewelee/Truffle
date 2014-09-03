@@ -1,17 +1,21 @@
 <section class="brands">
 
-<h1>Brands</h1>
-
   <section class="brands-list group">
     <ul>
-      <% categories.each(function(category) { %>
+      <% brands.each(function(brand) { %>
         <li>
-        	<div class="brand-container">
-            <%= brand.get("name") %>
+        	<div class="brand-container group">
+            <a href="#/brands/<%= brand.id %>">
+              <h2><%= brand.escape("name") %></h2>
+            </a>
 
-            <% brand.attributes.products.slice(0,5).each(function(product){%>
-              <%= product.get("name") %>
+            <% _(brand.attributes.products.slice(0,5)).each(function(product) { %>
+              <div class="brand-product">
+                <div class="brand-overlay"></div>
+                <img src="<%= product.imageSmall %>">
+              </div>
             <% }) %>
+
           </div>
         </li>
       <% }) %>

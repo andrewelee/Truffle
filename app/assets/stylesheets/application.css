@@ -551,10 +551,10 @@ button.comment:hover {
 	top: 50%;
 	left: 50%;
 	width: 900px;
-	min-height: 300px;
+	min-height: 75%;
 	padding: 50px;
 	margin-left: -500px;
-	margin-top: -200px;
+	margin-top: -400px;
   overflow: visible;
 }
 

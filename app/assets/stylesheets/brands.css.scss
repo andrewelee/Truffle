@@ -2,3 +2,70 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+section .brands-list{
+  margin-top: 50px;
+}
+
+.brand-container {
+  background: #fff;
+  width: 90%;
+  height: 275px;
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+  box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15);
+
+}
+
+.brand-container h2 {
+  padding: 15px;
+  font-size: 24px;
+  font-family: europa, 'Helvetica';
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  color: #bbb;
+  border-bottom: 1px solid #F2F2F2;
+  transition: 0.3s;
+  opacity: 0.7;
+}
+
+.brand-container h2:hover {
+  color: #fff; //#888
+  background: #ccc;
+  padding-left: 45%;
+  opacity: 1;
+}
+
+.brand-overlay {
+  height: 216px;
+  position: absolute;
+  width:100%;
+	transition: 0.3s;
+	opacity:0;
+  float: left;
+}
+
+.brand-overlay:hover {
+  background-color:#000;
+  opacity:0.15;
+}
+
+.brand-product {
+  float:left;
+  width: 20%;
+  height: 220px;
+  text-align: center;
+  position: relative;
+}
+
+.brand-product img{
+	max-height:75%;
+	max-width:75%;
+  padding-top: 25px;
+}
+
+//Show
+
+section.brand {
+  margin-top: 50px;
+}
