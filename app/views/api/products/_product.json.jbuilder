@@ -1,5 +1,5 @@
 json.(product, :id, :name, :url, :price, :brand_id, :category_id, :finder_user_id,
-:editor_user_id, :created_at, :updated_at)
+:editor_user_id, :note, :created_at, :updated_at)
 
 json.imageSmall product.image.url(:small)
 json.imageLarge product.image.url(:large)

@@ -1,10 +1,9 @@
 Truffle.Views.BrandsIndex = Backbone.View.extend({
 
   initialize: function() {
-    console.log(this.collection);
     this.listenTo(this.collection, "sync change reset", this.render);
   },
-	
+
   events: {
 		'click .product-image' : 'renderProduct',
     },
@@ -16,7 +15,7 @@ Truffle.Views.BrandsIndex = Backbone.View.extend({
     this.$el.html(content);
     return this;
   },
-	
+
   renderProduct: function() {
     event.preventDefault();
     var id = $(event.target).attr('data-id');

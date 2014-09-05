@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users
     resources :categories
     resources :brands
+    resources :likes
   end
 
   #Rails:
@@ -26,8 +27,8 @@ Rails.application.routes.draw do
 
   resources :collections, only: [:create, :destroy]
 
-  post 'like' => 'likes#create', as: :like
-  post 'unlike' => 'likes#destroy', as: :unlike
+  # post 'like' => 'likes#create', as: :like
+#   post 'unlike' => 'likes#destroy', as: :unlike
 
   post 'follow' => 'follows#create', as: :follow
   post 'unfollow' => 'follows#destroy', as: :unfollow

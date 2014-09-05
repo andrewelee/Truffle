@@ -27,28 +27,28 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
 		this.collection.comparator = function (product) {};
 		this.collection.reset(this.collection.shuffle());
   },
-	
+
 	sortPopular: function() {
 		this.collection.comparator = function (product) {
 			return -(product.get("likes"));
 		}
 		this.collection.sort();
 	},
-	
+
 	sortNew: function() {
 		this.collection.comparator = function (product) {
 			return -Date.parse(product.get("created_at"));
 		}
 		this.collection.sort();
 	},
-	
+
 	fifty: function() {
 		var filtered = this.collection.filter(function(product){
 			return product.get('price') < 50;
 		})
 		this.collection.reset(filtered);
 	},
-	
+
 	everything: function() {
 		this.collection.fetch({reset: true});
 	},
@@ -67,7 +67,7 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
 		var modalView = new Truffle.Views.ProductShow({
       model: this.collection.get(id)})
 		$('.modal-content').html(modalView.render().$el);
-		
+
 
     // $('.modal-content').html(
     //   JST['products/product-modal']({

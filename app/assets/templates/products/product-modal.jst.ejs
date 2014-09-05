@@ -2,24 +2,22 @@
 
 <div class="icon-holder">
 	<span class="collection">+</span>
-	<span class="favorite2">♥</span>
+  <span class="like">♥</span>
 </div>
-
-<!-- <span class="favorite">♥</span> -->
 
   <section class="modal-image">
     <img src="<%= product.escape("imageLarge") %>" class="image">
 	</section>
 
 	<section class="modal-info">
-		<h2 class="product-show"><%= product.escape('name') %></h2>
+		<h1 class="product-show"><%= product.escape('name') %></h1>
 
 		<a href="<%= product.escape("url") %>" class="price">
 			$<%= Math.round(product.escape("price")) %> on Amazon
 		</a>
 
 		<div class="likes">
-	    <% _(product.get('userLikes')).each(function(user) { %>
+	    <% _(product.get('userLikes').slice(0,18)).each(function(user) { %>
 	      <a href="/#/users/<%= user.id %>">
 	        <img src="<%= user.image %>">
 	      </a>
@@ -31,17 +29,31 @@
 			@<%= product.attributes.finder.username %>
 		</a>
 
+    <% if (product.note != null) { %>
+    <div class="note">
+
+        <p><%= product.note %></p>
+
+    </div>
+    <% } %>
+
 	</section>
 
   <ul class="comments">
     <% _(product.attributes.comments).each(function(comment) { %>
-      <li>
+      <li class="comment-avatar">
         <a href="/#/users/<%= comment.id %>">
           <img src="<%= comment.image %>">
         </a>
-        <%= comment.username %> | <%= comment.text %>
+        <div class="comment-body">
+          <h2><%= comment.text %> <h2>
+          <h3><%= comment.username %></h3>
+        </div>
+
+
+
       </li>
     <% }) %>
   </ul>
-	
+
 

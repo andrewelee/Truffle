@@ -1,13 +1,15 @@
 <section class="users">
 	<section class="users-list group">
   <ul>
-		
+
     <% users.each(function(user) { %>
       <li>
 
       	<div class="user-box">
 		  		<div class="user-avatar">
-		  			<img src="<%= user.escape("image") %>">
+        		<a href="/#/users/<%= user.escape('id') %>">
+          		<img src="<%= user.escape("image") %>">
+            </a>
 		  		</div>
 
 		    	<div class="user-name">

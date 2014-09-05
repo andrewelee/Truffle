@@ -1,0 +1,1 @@
+json.(like, :id, :user_id, :product_id)

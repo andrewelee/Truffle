@@ -1,4 +1,4 @@
-Truffle.Views.ProductShow = Backbone.View.extend({
+Truffle.Views.ProductShowb = Backbone.View.extend({
 
 	initialize: function(){
 		this.product = this.model;
@@ -16,7 +16,7 @@ Truffle.Views.ProductShow = Backbone.View.extend({
       })) {
         $('.like').addClass('unlike').removeClass('like')
       } else {
-        $('.like').addClass('like').removeClass('unlike')
+        $('.unlike').addClass('like').removeClass('unlike')
       }}
     });
 
@@ -45,7 +45,6 @@ Truffle.Views.ProductShow = Backbone.View.extend({
 
           $('.unlike').addClass('like').removeClass('unlike')
           console.log("deleted");
-          this.render();
         }
       });
   },

@@ -11,8 +11,6 @@ class Api::ProductsController < ApplicationController
     render :show
   end
 
-
-
   private
 
   def product_params

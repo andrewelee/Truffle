@@ -177,7 +177,7 @@ nav.filters {
   top: 0;
 	z-index: 501;
 	opacity: 0.99;
-	
+
 }
 
 nav.content-nav {
@@ -656,11 +656,15 @@ button.comment:hover {
 	top: 50%;
 	left: 50%;
 	width: 90%;
-	max-height: 80%;
+	max-height: 90%;
+  min-height: 70%;
 	margin-left: -45%;
-	margin-top: -20%;
+	margin-top: -30%;
 	overflow-y:scroll;
 	overflow-x:hidden;
+
+  box-sizing: border-box;
+  padding: 50px;
 }
 
 .modal-image {
@@ -699,7 +703,7 @@ button.comment:hover {
   text-align: center;
 	line-height: 50px;
 	display: block;
-	margin-bottom: 30px;
+  margin: 30px 0;
 }
 
 .modal-info .price:hover {
@@ -733,6 +737,28 @@ button.comment:hover {
   width: 100%;
   margin-bottom: 10px;
   margin-left: 25px;
+}
+
+.comment-avatar a {
+  height: 48px;
+  width: 48px;
+  float: left;
+}
+
+.comment-body {
+  float: left;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.comment-body h2 {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.comment-body h3 {
+  font-weight: 300;
 }
 
 .modal-screen {
@@ -809,7 +835,8 @@ button.comment:hover {
 
 .modal-content h1 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 500;
+  color: #999;
 }
 
 .modal-content h1:hover {
@@ -817,56 +844,85 @@ button.comment:hover {
 }
 
 .modal-content h2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #626262;
+}
+
+.note {
+  margin-top: 30px;
+  height: 150px;
+  width: 400px;
+  background: #666;
+  box-shadow: 0 4px 1px -2px rgba(0,0,0,0.15);
+  color: #FFF;
   font-size: 18px;
-  font-weight: 300;
-  color: #999;
-}
-
-.favorite:hover {
-	padding: 10px 14px;
-	background: #ccc;
-	color: #fff;
-	display: inline-block;
-	border-radius: 70px;
-}
-
-.favorite {
-	padding: 10px 14px;
-	background: #fff;
-	border: 3px solid #ccc;
-	color: #ccc;
-	display: inline-block;
-	border-radius: 70px;
-	transition: 0.2s;
 }
 
 .icon-holder {
-	padding: 10px 14px;
-	background: #fff;
-	border: 3px solid #ccc;
-	color: #ccc;
-	display: inline-block;
-	border-radius: 70px;
-	transition: 0.2s;
+  padding: 10px 14px;
+  background: #fff;
+  border: 3px solid #ccc;
+  color: #ccc;
+  display: inline-block;
+  border-radius: 70px;
+  transition: 0.2s;
+  float: left;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
-.favorite2:hover {
-	padding: 6px 10px;
+.collection {
+  padding: 9px 13.5px;
+  background: #fff;
+  border: 3px solid #ccc;
+  color: #ccc;
+  font-weight: 600;
+  display: inline-block;
+  border-radius: 70px;
+  transition: 0.2s;
+  vertical-align: middle;
+}
+
+.collection:hover {
 	background: #ccc;
-	font-size: 20px;
 	color: #fff;
-	display: inline-block;
-	border-radius: 70px;
 }
 
-.favorite2 {
-	padding: 6px 10px;
+.unlike {
+  padding: 6.5px 12px;
+  background: #ccc;
+  border: 3px solid #ccc;
+  color: #fff;
+  font-size: 20px;
+  display: inline-block;
+  border-radius: 70px;
+  transition: 0.2s;
+  vertical-align: middle;
+}
+
+.unlike:hover {
 	background: #fff;
-	border: 3px solid #ccc;
-	color: #ccc;
-	font-size: 20px;
-	display: inline-block;
-	border-radius: 70px;
-	transition: 0.2s;
+	color: #ccc;;
+  cursor: pointer;
+}
+
+.like {
+  padding: 6.5px 12px;
+  background: #fff;
+  border: 3px solid #ccc;
+  color: #ccc;
+  font-size: 20px;
+  display: inline-block;
+  border-radius: 70px;
+  transition: 0.2s;
+  vertical-align: middle;
+}
+
+.like:hover {
+	background: #ccc;
+	color: #fff;
+  cursor: pointer;
 }
 
