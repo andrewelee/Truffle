@@ -1,13 +1,6 @@
-<h2 class="form">Sign up and start discovering the</h2>
-<h2 class="form">products you'll like.</h2>
-
-<% if flash[:errors] %>
-	<% flash[:errors].each do |error| %>
-		<li><%= error %></li>
-	<% end %>
-	<br>
-<% end %>
-
+<div class="form-bg">
+	<h2 class="form">Sign up and start discovering the</h2>
+	<h2 class="form">products you'll like.</h2>
 
 <form action="<%=users_url%>" method="post" enctype="multipart/form-data" class="wrapper sign-in">
   <%= auth_token %>
@@ -15,22 +8,26 @@
 	<div class="input">
 	  <label for="name">first and last name</label>
 	  <input type="text" id="name" name="user[name]" value="<%= @user.name %>">
+		<p id="name"> Please enter your full name </p>
 	</div>
 
 	<div class="input">
 	  <label for="username">username</label>
 	  <input type="text" id="username" name="user[username]" 
 			value="<%= @user.username %>">
+		<p id="username"> Username must be between 2 and 16 characters</p>
 	</div>
 
 	<div class="input">
 	  <label for="email">email</label>
 	  <input type="text" id="email" name="user[email]" value="<%= @user.email %>">
+		<p id="email">Please enter your email address</p>
 	</div>
 
 	<div class="input">
 		<label for="password">password</label>
 	  <input type="password" id="password" name="user[password]">
+		<p id="password">Make a password with at least 6 characters</p>
 	</div>
 
 	<div class="input">
@@ -42,3 +39,33 @@
   <button class="sign">Sign Up</button>
 
 </form>
+</div>
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+	
+	<script>
+	$(document).ready(function(){
+		<% if error == "Name can't be blank"%>
+			$('input[type=text]#name').addClass('error');
+			$('p#name').addClass('error')
+		<% end %>
+		
+		<% if error == "Username can't be blank" || error == "Username is too short (minimum is 2 characters)" %>
+			$('input[type=text]#username').addClass('error');
+			$('p#username').addClass('error')
+		<% end %>
+		
+		<% if error == "Email can't be blank" %>
+			$('input[type=text]#email').addClass('error');
+			$('p#email').addClass('error')
+		<% end %>
+		
+		<% if error == "Password is too short (minimum is 6 characters)" %>
+		$('input[type=password]#password').addClass('error');
+		$('p#password').addClass('error')
+		<% end %>
+	})
+	</script>
+	<% end %>
+<% end %>

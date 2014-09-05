@@ -1,6 +1,6 @@
 <div class="head">
 	<div class="wrapper">
-		<a href="#">
+		<a href="/#/index">
 			<img src="<%= asset_path("truffle-sign.png") %>">
 		</a>
 	</div>
@@ -12,8 +12,8 @@
 <nav class="main-nav">
 	<div class="wrapper">
 		<section class="links">
-			<a href="#" class="shuffle">Explore</a>
-  		<a href="#/categories">Shop</a>
+			<a href="/#/explore">Explore</a>
+  		<a href="/#/categories">Shop</a>
 		  <% if signed_in? && is_editor?%>
 		  	<a href="<%= new_product_url%>">Add Product</a>
 		  <% end %>

@@ -1,7 +1,12 @@
 Truffle.Views.ProductsIndex = Backbone.View.extend({
 
-  initialize: function() {
-    this.listenTo(this.collection, "sync change reset", this.render);
+  initialize: function(options) {
+    this.listenTo(this.collection, "sync change reset sort", this.render);
+		Truffle.pubSub.on('random', this.shuffle, this);
+		Truffle.pubSub.on('popular', this.sortPopular, this);
+		Truffle.pubSub.on('new', this.sortNew, this);
+		Truffle.pubSub.on('everything', this.everything, this);
+		Truffle.pubSub.on('50', this.fifty, this);
   },
 
   template: JST['products/index'],
@@ -18,9 +23,35 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
   },
 
   shuffle: function() {
-    this.collection.reset(this.collection.shuffle(), {silent:true});
-    this.render();
+		console.log('shuffle');
+		this.collection.comparator = function (product) {};
+		this.collection.reset(this.collection.shuffle());
   },
+	
+	sortPopular: function() {
+		this.collection.comparator = function (product) {
+			return -(product.get("likes"));
+		}
+		this.collection.sort();
+	},
+	
+	sortNew: function() {
+		this.collection.comparator = function (product) {
+			return -Date.parse(product.get("created_at"));
+		}
+		this.collection.sort();
+	},
+	
+	fifty: function() {
+		var filtered = this.collection.filter(function(product){
+			return product.get('price') < 50;
+		})
+		this.collection.reset(filtered);
+	},
+	
+	everything: function() {
+		this.collection.fetch({reset: true});
+	},
 
   renderProduct: function() {
     event.preventDefault();

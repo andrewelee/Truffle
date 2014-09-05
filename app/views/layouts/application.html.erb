@@ -10,7 +10,13 @@
 <body>
 
 <!-- current-user -->
-<%= render partial: "layouts/current_user" %>
+<% if current_user %>
+
+<script>
+	window.currentUser = { id: <%= current_user.id %> };
+</script>
+
+<% end %>
 
 <!-- Modal -->
 
@@ -27,6 +33,20 @@
 <!-- Nav Bar -->
 
 <%= render partial: "layouts/header" %>
+
+
+<!-- // var  mn = $(".main-nav");
+// var mns = "scrolled";
+// var hdr = $('.head').height();
+//
+// $(window).scroll(function() {
+//   if( $(this).scrollTop() > hdr + 100 ) {
+//     mn.addClass(mns);
+//   } else {
+//     mn.removeClass(mns);
+//   }
+// }); -->
+
 
 <!-- Content -->
 

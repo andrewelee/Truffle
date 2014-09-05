@@ -15,6 +15,8 @@ end
 
 # json.likes product.likes, :id, :user_id
 
+json.likes product.user_likes.length
+
 json.userLikes product.user_likes.each do |user|
   json.id user.id
   json.image user.avatar.url(:thumb)

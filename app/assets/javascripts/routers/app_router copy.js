@@ -1,14 +1,13 @@
 Truffle.Routers.AppRouter = Backbone.Router.extend({
-  initialize: function(products, content, contentNav){
+  initialize: function(products, element){
     this.products = products;
+    this.$element = $(element);
     this.categories = new Truffle.Collections.Categories();
-		this.$content = content;
-		this.$contentNav = contentNav;
   },
 
   routes: {
     "" : "index",
-    "explore" : "index",
+    "products" : "index",
     "products/:id" : "productShow",
 		"users/:id": "userShow",
     "categories" : "categoriesIndex",
@@ -21,9 +20,6 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
     var productsIndex = new Truffle.Views.ProductsIndex({
       collection: this.products
     });
-		
-		var productNav = new Truffle.Views.ProductNav({});
-		this.$contentNav.html(productNav.render().$el);
 
     this._swapView(productsIndex);
   },
@@ -34,45 +30,27 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
     var brandsIndex = new Truffle.Views.BrandsIndex({
       collection: brands
     })
-		
-		this.$contentNav.html(JST['store-nav']({}))
     this._swapView(brandsIndex)
-  },
-	
-  brandShow: function(id){
-		var brand = Truffle.brands.getOrFetch(id)
-		
-    var brandShow = new Truffle.Views.BrandShow({
-      model: brand,
-      collection: this.products
-      })
-
-		var storeNav = new Truffle.Views.StoreNav({});
-		this.$contentNav.html(storeNav.render().$el);
-    this._swapView(brandShow)
   },
 
   categoriesIndex: function(){
-    var categories = new Truffle.Collections.Categories();
-    categories.fetch()
+    // var categories = new Truffle.Collections.Categories();
+    this.categories.fetch();
 
     var categoriesIndex = new Truffle.Views.CategoriesIndex({
-      collection: categories
+      collection: this.categories
     })
-		
-		this.$contentNav.html(JST['store-nav']({}))
     this._swapView(categoriesIndex)
   },
 
   categoryShow: function(id){
 		var category = Truffle.categories.getOrFetch(id)
+		
     var categoryShow = new Truffle.Views.CategoryShow({
       model: category,
       collection: this.products
-    })
-			
-		var storeNav = new Truffle.Views.StoreNav({});
-		this.$contentNav.html(storeNav.render().$el);
+      })
+
     this._swapView(categoryShow)
   },
 
@@ -95,7 +73,7 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this._currentView = newView;
 
-    this.$content.html(newView.render().$el);
+    $("#content").html(newView.render().$el);
   }
 
 });

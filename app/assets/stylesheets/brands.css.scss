@@ -24,7 +24,7 @@ section .brands-list{
   -webkit-font-smoothing: antialiased;
   font-weight: 500;
   color: #bbb;
-  border-bottom: 1px solid #F2F2F2;
+  border-bottom: 2px solid #F2F2F2;
   transition: 0.3s;
   opacity: 0.7;
 }
@@ -34,6 +34,7 @@ section .brands-list{
   background: #ccc;
   padding-left: 45%;
   opacity: 1;
+	border-bottom: 2px solid #eee;
 }
 
 .brand-overlay {
@@ -68,4 +69,73 @@ section .brands-list{
 
 section.brand {
   margin-top: 50px;
+}
+
+section.products h1 {
+	font-size: 32px;
+	font-weight: 300;
+	/*margin-bottom: 50px;*/
+	text-align: center;
+}
+
+section.products .container {
+	text-align: center;
+}
+
+.container > .products-list {
+	transition: 0.5s;
+}
+
+.container.open > .products-list {
+	padding-top: 100px;
+}
+
+section.products h2 {
+	display: inline-block;
+	text-align: center;
+	font-size: 30px;
+	color: #ccc;
+	font-weight: 400;
+	transition: 0.5s;
+	margin: 10px 0;
+	opacity: 0.7;
+}
+
+section.products h2:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+section.products h2.open {
+	-ms-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+ul.sub-menu {
+	/*height: 50px;*/
+	-webkit-column-count: 5;
+	-moz-column-count: 5;
+	column-count: 5;
+	text-align: center;
+	opacity: 0;
+	transition: 0.5s;
+	color: #525252;
+}
+
+ul.sub-menu a {
+	color: #525252;
+}
+
+ul.sub-menu.open {
+	opacity: 1;
+	padding: 0 20%;
+}
+
+.sub-menu.open a {
+	color: #525252;;
+}
+
+.sub-menu.open a:hover {
+	text-decoration: underline;;
 }

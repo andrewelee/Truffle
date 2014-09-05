@@ -1,5 +1,5 @@
 <section class="products">
-
+	
   <section class="products-list group">
     <ul>
       <% products.each(function(product) { %>
@@ -29,7 +29,7 @@
               <% }) %>
 
 							<div class="like-count" data-id="<%= product.id %>">
-                <%= product.attributes.userLikes.length %>
+                <%= product.attributes.likes %>
               </div>
           	</div>
 

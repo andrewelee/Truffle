@@ -1,5 +1,15 @@
 <section class="products">
 
+<div class="container">
+<h1><%= category.escape('name') %><h2 class="toggle">▼</h2></h1>
+	<ul class="sub-menu">
+		<% Truffle.categories.each(function(category) { %>
+			<li>
+				<a href="#/categories/<%= category.escape('id') %>"><%= category.escape('name') %></a>
+			</li>
+		<% }) %>
+	</ul>
+
   <section class="products-list group">
     <ul>
       <% _(category.attributes.products).each(function(product) { %>
@@ -25,5 +35,6 @@
       <% }) %>
     </ul>
   </section>
+</div>
 
 </section>

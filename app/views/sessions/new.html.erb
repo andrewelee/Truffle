@@ -1,20 +1,28 @@
+<div class="form-bg">
 <h2 class="form">Welcome back, friend.</h2>
 
-<form action="<%=session_url%>" method="post" class="wrapper">
-  <%= auth_token %>
+	<form action="<%=session_url%>" method="post" class="wrapper">
+	  <%= auth_token %>
 
-	<div class="input">
-  <label>
-    <input type="text" name="user[idInput]" placeholder="email or username">
-  </label>
-	</div>
+		<div class="input">
+	  <label>
+	    <input type="text" name="user[idInput]" placeholder="email or username">
+	  </label>
+		</div>
 
-	<div class="input">
-  <label>
-    <input type="password" name="user[password]" placeholder="password">
-  </label>
-	</div>
+		<div class="input">
+	  <label>
+	    <input type="password" name="user[password]" placeholder="password">
+	  </label>
+		</div>
 
-  <button class="sign">Log in</button>
+	  <button class="sign">Log in</button>
 
-</form>
+	</form>
+</div>
+
+<% if flash[:errors] %>
+<script>
+	$( "h2.form" ).replaceWith( $( "<h2 class='form'>Try again</h2>" ) );
+</script
+<% end %>

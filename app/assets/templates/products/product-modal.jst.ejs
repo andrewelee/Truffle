@@ -13,14 +13,14 @@
 
 		<div class="likes">
 	    <% _(product.get('userLikes')).each(function(user) { %>
-	      <a href="/users/<%= user.id %>">
+	      <a href="/#/users/<%= user.id %>">
 	        <img src="<%= user.image %>">
 	      </a>
 	    <% }) %>
 		</div>
 
 		Found by:
-		<a href="/users/<%= product.escape('finder_user_id') %>">
+		<a href="/#/users/<%= product.escape('finder_user_id') %>">
 			@<%= product.attributes.finder.username %>
 		</a>
 
@@ -29,7 +29,7 @@
   <ul class="comments">
     <% _(product.attributes.comments).each(function(comment) { %>
       <li>
-        <a href="/users/<%= comment.id %>">
+        <a href="/#/users/<%= comment.id %>">
           <img src="<%= comment.image %>">
         </a>
         <%= comment.username %> | <%= comment.text %>
