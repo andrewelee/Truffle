@@ -1,0 +1,23 @@
+<section class="users">
+	<section class="users-list group">
+  <ul>
+		
+    <% users.each(function(user) { %>
+      <li>
+
+      	<div class="user-box">
+		  		<div class="user-avatar">
+		  			<img src="<%= user.escape("image") %>">
+		  		</div>
+
+		    	<div class="user-name">
+		    		<h2><%= user.escape('name') %></h1>
+		    		<h3>@<%= user.escape('username') %></h2>
+		    	</div>
+        </div>
+
+	    </li>
+	  <% }) %>
+	</ul>
+	</section>
+</section>

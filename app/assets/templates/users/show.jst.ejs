@@ -7,19 +7,22 @@
   		</div>
 
     	<div class="user-name">
-    		<h1><%= user.escape('name') %></h1>
-    		<p>@<%= user.escape('username') %><p>
+    		<h2><%= user.escape('name') %></h1>
+    		<h3>@<%= user.escape('username') %></h2>
     	</div>
+			
+			<ul class="user-nav group">
+			  <li class="liked nav">Likes<div class="count"><%= user.attributes.likedProducts.length %></div></li>
+			  <!-- <li>Collections</li> -->
+			  <li class="following nav">Following<div class="count"><%= user.attributes.followedUsers.length %></div></li>
+			  <li class="followers nav">Followers<div class="count"><%= user.attributes.followers.length %></div></li>
+			</nav>
 
   	</div>
   </div>
 </div>
 
-<nav class="user-nav">
-  <p>Likes(<%= user.attributes.likedProducts.length %>)</p>
-  <!-- <p>Collections</p> -->
-  <p>Following(<%= user.attributes.followedUsers.length %>)</p>
-  <p>Followers(<%= user.attributes.followers.length %>)</p>
-</nav>
+<div class="products">
+	
+</div>
 
-<br>

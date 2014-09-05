@@ -1,6 +1,6 @@
 <div class="head">
 	<div class="wrapper">
-		<a href="/#/index">
+		<a href="/#">
 			<img src="<%= asset_path("truffle-sign.png") %>">
 		</a>
 	</div>
@@ -21,7 +21,7 @@
 
 		<section class="user-links">
 			<% if signed_in? %>
-			  <a href="<%= user_url(current_user) %>">
+			  <a href="/#/users/<%= current_user.id %>">
           <img src="<%= asset_path("profile-icon.png") %>">
         </a>
 			<% else %>

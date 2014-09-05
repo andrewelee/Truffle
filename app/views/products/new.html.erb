@@ -1,24 +1,51 @@
-<h2 class="form">New Product!</h2>
+<div class="form-bg">
+	<h2 class="form">New Product!</h2>
 
-<% if flash[:errors] %>
-	<% flash[:errors].each do |error| %>
-		<li><%= error %></li>
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |error| %>
+	
+		<script>
+		$(document).ready(function(){
+			<% if error == "Name can't be blank"%>
+				$('input[type=text]#name').addClass('error');
+				$('p#name').addClass('error')
+			<% end %>
+		
+			<% if error == "Url can't be blank" %>
+				$('input[type=text]#url').addClass('error');
+				$('p#url').addClass('error')
+			<% end %>
+		
+			<% if error == "Price can't be blank" %>
+				$('input[type=text]#price').addClass('error');
+				$('p#price').addClass('error')
+			<% end %>
+		
+			<% if error == "Image can't be blank" %>
+				$('p#image').addClass('error')
+			<% end %>
+		
+		})
+		</script>
+		<% end %>
 	<% end %>
-<% end %>
 
 <form action="<%= products_url %>" method="post" enctype="multipart/form-data" class="wrapper">
   <%= auth_token %>
 
 	<div class="input">
 	  <label for="name">product name</label>
-	    <input type="text" name="product[name]" value="<%= @product.name %>">
+	    <input type="text" id="name" name="product[name]" value="<%= @product.name %>">
+			<p id="name"> Please enter the product name </p>
 	  </label>
 
   <label for="url">url</label>
-    <input type="text" name="product[url]" value="<%= @product.url %>">
+    <input type="text" id="url" name="product[url]" value="<%= @product.url %>">
+		<p id="url"> Please enter the url </p>
 
   <label for="price">price</label>
-    <input type="text" name="product[price]" value="<%= @product.price %>">
+    <input type="text" id="price" name="product[price]" value="<%= @product.price %>">
+		<p id="price"> Please enter the price </p>
 
   <label>brand
     <select name="product[brand_id]" value="<%= @product.brand_id %>">
@@ -68,11 +95,12 @@
 
 	<label for="image">image</label></div>
 	<input type="file" id="image" name="user[avatar]" class="upload">
+	<div class="input"><p id="image"> Must include image </p></div>
 		
 
   <br>
   <button class="sign">Create Product</button>
 	</div>
 
-
-</form>
+	</form>
+</div>

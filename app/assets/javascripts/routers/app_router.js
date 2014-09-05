@@ -10,6 +10,7 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
     "" : "index",
     "explore" : "index",
     "products/:id" : "productShow",
+		"products/new" : "productNew",
 		"users/:id": "userShow",
     "categories" : "categoriesIndex",
     "categories/:id" : "categoryShow",
@@ -87,7 +88,8 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
 		var userShowView = new Truffle.Views.UserShow({
 			model: user
 		});
-
+		
+		this.$contentNav.empty() 
 		this._swapView(userShowView);
 	},
 

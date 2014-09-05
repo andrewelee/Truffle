@@ -33,6 +33,8 @@
           <img src="<%= comment.image %>">
         </a>
         <%= comment.username %> | <%= comment.text %>
+				<% var createdAt = $.timeago(comment.timestamp) %>
+						<span class="time"><%= createdAt %></span>
       </li>
     <% }) %>
   </ul>
