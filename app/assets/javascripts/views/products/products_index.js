@@ -63,11 +63,17 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
 
 	  $("body").addClass("modal-open");
 
-    $('.modal-content').html(
-      JST['products/product-modal']({
-        product: this.collection.get(id)
-      })
-    )
+		//
+		var modalView = new Truffle.Views.ProductShow({
+      model: this.collection.get(id)})
+		$('.modal-content').html(modalView.render().$el);
+		
+
+    // $('.modal-content').html(
+    //   JST['products/product-modal']({
+    //     product: this.collection.get(id)
+    //   })
+    // )
 
     $('.hide-modal').on('click', function() {
 			$("body").removeClass("modal-open")

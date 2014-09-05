@@ -23,7 +23,7 @@ window.Truffle = {
       success: function(){
         
 				if(window.currentUser) {
-					Truffle.currentUser = new Truffle.Models.User({ id: window.currentUser });
+					Truffle.currentUser = new Truffle.Models.User({ id: window.currentUser.id });
 				}
 				
 				var productsIndex = new Truffle.Views.ProductsIndex({collection: products});

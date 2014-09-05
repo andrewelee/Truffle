@@ -1,5 +1,12 @@
 <span class="modal-close hide-modal">&times;</span>
 
+<div class="icon-holder">
+	<span class="collection">+</span>
+	<span class="favorite2">♥</span>
+</div>
+
+<!-- <span class="favorite">♥</span> -->
+
   <section class="modal-image">
     <img src="<%= product.escape("imageLarge") %>" class="image">
 	</section>
@@ -33,9 +40,8 @@
           <img src="<%= comment.image %>">
         </a>
         <%= comment.username %> | <%= comment.text %>
-				<% var createdAt = $.timeago(comment.timestamp) %>
-						<span class="time"><%= createdAt %></span>
       </li>
     <% }) %>
   </ul>
+	
 

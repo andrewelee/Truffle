@@ -30,7 +30,7 @@ body {
 }
 
 body.modal-open {
-/*    overflow: hidden;*/
+    overflow: hidden;
 
 }
 
@@ -635,7 +635,7 @@ button.comment:hover {
   display: block;
 }
 
-.modal-content {
+/*.modal-content {
 	position: absolute;
 	z-index: 1000;
 	background: #fff;
@@ -647,6 +647,20 @@ button.comment:hover {
 	margin-left: -500px;
 	margin-top: -400px;
   overflow: visible;
+}*/
+
+.modal-content {
+	position: fixed;
+	z-index: 1000;
+	background: #fff;
+	top: 50%;
+	left: 50%;
+	width: 90%;
+	max-height: 80%;
+	margin-left: -45%;
+	margin-top: -20%;
+	overflow-y:scroll;
+	overflow-x:hidden;
 }
 
 .modal-image {
@@ -817,6 +831,16 @@ button.comment:hover {
 }
 
 .favorite {
+	padding: 10px 14px;
+	background: #fff;
+	border: 3px solid #ccc;
+	color: #ccc;
+	display: inline-block;
+	border-radius: 70px;
+	transition: 0.2s;
+}
+
+.icon-holder {
 	padding: 10px 14px;
 	background: #fff;
 	border: 3px solid #ccc;
