@@ -6,6 +6,12 @@
   			<img src="<%= user.escape("image") %>">
   		</div>
 
+      <% if (Truffle.currentUser.id === this.model.id) { %>
+        <div class="button editUser">Edit</div>
+      <% } else { %>
+        <div class="button follow">Follow</div>
+      <% } %>
+
     	<div class="user-name">
     		<h2><%= user.escape('name') %></h1>
     		<h3>@<%= user.escape('username') %></h2>

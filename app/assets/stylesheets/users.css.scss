@@ -134,7 +134,7 @@ section.users h1 {
   margin-bottom: 30px;
 	background: #fff;
 	width: 30%;
-	height: 140px;
+	height: 144px;
   position: relative;
 	box-shadow: 0 4px 1px -2px rgba(0,0,0,0.15);
 }
@@ -153,4 +153,18 @@ section.users h1 {
 .user-box .user-name {
 	float: left;
 	padding-top: 10px;
+}
+
+.follow {
+  display: block;
+  height: 24px;
+  background: #FFBA2B;
+  width: 96px;
+  padding-top: 14px;
+  padding-bottom: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  color: #FFF;
+  weight: 300;
 }

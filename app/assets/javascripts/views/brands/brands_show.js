@@ -81,7 +81,6 @@ Truffle.Views.BrandShow = Backbone.View.extend({
     $('.hide-modal').on('click', function() {
 			$("body").removeClass("modal-open")
       $('#modal').removeClass("is-active");
-      Backbone.history.back()
     })
 
   },
