@@ -7,7 +7,7 @@ class Api::LikesController < ApplicationController
   def create
     @like = Like.new(like_params)
     @like.save
-    redirect_to '/#/'
+    render partial: "api/likes/like.json", locals: { like: @like }
   end
 
   def destroy
@@ -16,7 +16,7 @@ class Api::LikesController < ApplicationController
     #   params[:like][:product_id])
     @like = Like.find(params[:id])
     @like.destroy
-    render status: 200
+    render json: @like
   end
 
   private

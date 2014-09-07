@@ -2,6 +2,7 @@ Truffle.Views.ProductShow = Backbone.View.extend({
 
 	initialize: function(){
 		this.product = this.model;
+		this.listenTo(this.model, "sync change reset", this.render);
 
     Truffle.currentUser.fetch();
 
@@ -14,9 +15,11 @@ Truffle.Views.ProductShow = Backbone.View.extend({
         user_id: Truffle.currentUser.id,
         product_id: that.model.id
       })) {
-        $('.like').addClass('unlike').removeClass('like')
+				console.log("like exists");
+        $('.like').addClass('remove');
       } else {
-        $('.like').addClass('like').removeClass('unlike')
+				console.log("like doesn't exist");
+        $('.like').addClass('add');
       }}
     });
 
@@ -26,35 +29,57 @@ Truffle.Views.ProductShow = Backbone.View.extend({
 
   events: {
       'click .like' : 'like',
-      'click .unlike' : 'unlike'
+			'click .hide-modal' : 'closeModal'
     },
 
   render: function () {
+		console.log("Render!")
     var content = this.template({ product: this.product });
     this.$el.html(content);
-    return this;
+		    
+		if (Truffle.currentUser.likes().findWhere({product_id: this.model.id})){
+			console.log("like exists");
+	    $('.like').addClass('remove');
+	  } else {
+			console.log("like doesn't exist");
+	    $('.like').addClass('add');
+	  }
+  
+	  return this;
   },
-
-  unlike: function() {
-    console.log("Model: " + this.model.id);
-    console.log("User: " + Truffle.currentUser.id);
-    var likedProduct = Truffle.currentUser.likes().findWhere({product_id: this.model.id});
-    console.log(likedProduct);
-    likedProduct.destroy({
-        success: function() {
-
-          $('.unlike').addClass('like').removeClass('unlike')
-          console.log("deleted");
-          this.render();
-        }
-      });
-  },
-
+	
+	closeModal: function() {
+		$("body").removeClass("modal-open");
+    $('#modal').removeClass("is-active");
+	},
+	
 	like: function() {
-    var productLike = new Truffle.Models.Like({user_id: Truffle.currentUser.id, product_id: this.model.id});
-    productLike.save()
-    Truffle.currentUser.fetch();
-    $('.like').addClass('unlike').removeClass('like')
-    this.render();
-  }
+		var that = this;
+		
+		if (Truffle.currentUser.likes().findWhere({product_id: this.model.id})){
+			console.log("UNLIKING");
+			var likedProduct = Truffle.currentUser.likes().findWhere({product_id: this.model.id});
+			likedProduct.destroy({
+				success: function(){
+					console.log("DELETED");
+					Truffle.currentUser.fetch();
+					that.model.fetch();
+				}
+			});
+			
+		} else {
+			console.log("firing LIKE");
+			var that = this;
+	    var productLike = new Truffle.Models.Like({user_id: Truffle.currentUser.id, product_id: this.model.id});
+	    productLike.save(null , {
+				success: function(){
+					console.log("ADDED");
+					Truffle.currentUser.fetch();
+					that.model.fetch();
+				}
+			});
+			
+		}
+	}
+
 });

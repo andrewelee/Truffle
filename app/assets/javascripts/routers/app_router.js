@@ -66,7 +66,7 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
   },
 
   categoryShow: function(id){
-		var category = Truffle.categories.getOrFetch(id)
+		var category = Truffle.categories.getOrFetch(id);
     var categoryShow = new Truffle.Views.CategoryShow({
       model: category,
       collection: this.products
@@ -78,7 +78,8 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
   },
 
   productShow: function(id){
-    var product = this.products.get({id: id});
+    var product = this.products.getOrFetch(id);
+		//var product = this.products.get({id: id});
     var productShow = new Truffle.Views.ProductShow({model: product});
     this._swapView(productShow);
   },

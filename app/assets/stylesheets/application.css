@@ -890,7 +890,7 @@ button.comment:hover {
 	color: #fff;
 }
 
-.unlike {
+.like.remove {
   padding: 6.5px 12px;
   background: #ccc;
   border: 3px solid #ccc;
@@ -902,13 +902,12 @@ button.comment:hover {
   vertical-align: middle;
 }
 
-.unlike:hover {
-	background: #fff;
-	color: #ccc;;
+.like.remove:hover {
+	opacity: 0.5;
   cursor: pointer;
 }
 
-.like {
+.like.add {
   padding: 6.5px 12px;
   background: #fff;
   border: 3px solid #ccc;
@@ -920,7 +919,7 @@ button.comment:hover {
   vertical-align: middle;
 }
 
-.like:hover {
+.like.add:hover {
 	background: #ccc;
 	color: #fff;
   cursor: pointer;

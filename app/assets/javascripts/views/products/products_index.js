@@ -7,6 +7,7 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
 		Truffle.pubSub.on('new', this.sortNew, this);
 		Truffle.pubSub.on('everything', this.everything, this);
 		Truffle.pubSub.on('50', this.fifty, this);
+		console.log("init");
   },
 
   template: JST['products/index'],
@@ -19,6 +20,7 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
   render: function(){
     var content = this.template({ products: this.collection });
     this.$el.html(content);
+		//$('.product-box').css('opacity', '0').fadeTo(500, 1,'swing');
     return this;
   },
 
@@ -55,12 +57,12 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
 
   renderProduct: function() {
     event.preventDefault();
+		var that = this;
     var id = $(event.target).attr('data-id');
     var product = new Truffle.Models.Product({id: id});
     product.fetch();
 
     $("#modal").addClass("is-active");
-
 	  $("body").addClass("modal-open");
 
 		//
@@ -78,6 +80,7 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
     $('.hide-modal').on('click', function() {
 			$("body").removeClass("modal-open")
       $('#modal').removeClass("is-active");
+			that.collection.fetch();
     })
 
   },
