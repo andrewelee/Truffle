@@ -42,3 +42,9 @@ json.followedUsers user.followed_users.each do |user|
   json.image user.avatar.url(:normal)
   json.thumb user.avatar.url(:thumb)
 end
+
+json.follows user.follows.each do |follow|
+  json.id follow.id
+  json.follower_id follow.follower_id
+  json.followed_id follow.followed_id
+end

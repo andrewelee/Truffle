@@ -30,6 +30,7 @@ div.user-header {
 
 div.user-container {
 	height: 144px;
+	position: relative;
 }
 
 div.user-container .user-avatar img{
@@ -167,4 +168,32 @@ section.users h1 {
   bottom: 0;
   color: #FFF;
   weight: 300;
+	transition: 0.2s;
+}
+
+.follow:hover {
+	background: #de9600;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.follow.remove {
+  display: block;
+  height: 24px;
+  background: #0050f7;
+  width: 96px;
+  padding-top: 14px;
+  padding-bottom: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  color: #FFF;
+  weight: 300;
+	transition: 0.2s;
+}
+
+.follow.remove:hover {
+	background: #0037ab;
+	cursor: pointer;
+	transition: 0.2s;
 }

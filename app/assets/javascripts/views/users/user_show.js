@@ -1,7 +1,16 @@
 Truffle.Views.UserShow = Backbone.View.extend({
   initialize: function() {
-    $('#modal').removeClass("is-active");
-		this.sort = "none";
+		var that = this;
+		this.listenTo(this.model, "sync change reset", this.render);
+		Truffle.currentUser.fetch();
+		this.model.fetch({
+			success: function(){
+		    $('#modal').removeClass("is-active");
+	   		$("body").removeClass("modal-open");
+				this.sort = "none";
+			}
+		});
+		
   },
 
   template: JST['users/show'],
@@ -10,8 +19,8 @@ Truffle.Views.UserShow = Backbone.View.extend({
       'click .liked' : 'filter',
 			'click .followers' : 'filter',
 			'click .following' : 'filter',
-      'click .follow' : 'followToggle'// ,
-// 		  'click .product-image' : 'renderProduct',
+      'click .follow' : 'followToggle',
+ 		  'click .product-image' : 'renderProduct'
 // 		  'click .like-count' : 'renderLikes'
     },
 
@@ -22,7 +31,7 @@ Truffle.Views.UserShow = Backbone.View.extend({
 		//Lets add products, followers, or followed (collections in the future?)
 		var view = this;
 
-		console.log(this.sort);
+		//console.log(this.sort);
 		if (this.sort === "followers") {
 			var followers = this.model.get('followers');
 			var users = new Truffle.Collections.Users(followers);
@@ -40,11 +49,11 @@ Truffle.Views.UserShow = Backbone.View.extend({
 			var products = new Truffle.Collections.Products(likedProducts);
 			var userView = new Truffle.Views.ProductsIndex({
 				collection: products
-			})
+			})	
 		}
-
-		console.log(products);
+		
 		//userView.undelegateEvents();
+		
 		this.$(".products").append(userView.render().$el)
     return this;
   },
@@ -53,22 +62,54 @@ Truffle.Views.UserShow = Backbone.View.extend({
 	filter: function(event) {
 		this.sort = event.target.className.split(' ')[0];
 
-		this.render();
+		this.model.fetch();
 	},
 
   followToggle: function() {
-    var id = $(event.target).attr('data-id');
-    console.log(id);
+    var id = parseInt($(event.target).attr('data-id'));
+		//var action = event.target.className.split(' ')[1];
+    console.log("id: " + id);
+		console.log(Truffle.currentUser.id);
+		
+		var that = this;
+		
+		var follow = Truffle.currentUser.followedUsers().findWhere({
+			followed_id: id
+		})
+		
+		console.log(follow);
+		
+		if (follow) {
+			follow.destroy({
+				success: function(){
+					console.log("UNFOLLOWED");
+					Truffle.currentUser.fetch();
+					that.model.fetch();
+				}
+			})
+		} else {
+			var follow = new Truffle.Models.Follow({
+				follower_id: Truffle.currentUser.id,
+				followed_id: id});
+				follow.save(null, {
+					success: function(){
+						console.log("FOLLOWING!");
+						Truffle.currentUser.fetch();
+						that.model.fetch();
+					}
+				})
+		};
   },
 
   //To be replaced by a specific product show view/modal(?)
-  renderProduct: function() {
+  renderProduct2: function() {
+		console.log("renderProduct2")
+		var that = this;
     event.preventDefault();
     var id = $(event.target).attr('data-id');
 		console.log(id);
     var product = new Truffle.Models.Product({id: id});
     product.fetch();
-		console.log(product);
 
 
     $("#modal").addClass("is-active");
@@ -82,8 +123,10 @@ Truffle.Views.UserShow = Backbone.View.extend({
     )
 
     $('.hide-modal').on('click', function() {
-			$("body").removeClass("modal-open")
+			$("body").removeClass("modal-open");
       $('#modal').removeClass("is-active");
+			that.model.fetch();
+			console.log("user show!");
     })
 
   }

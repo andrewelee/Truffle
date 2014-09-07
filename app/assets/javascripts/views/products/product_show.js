@@ -1,6 +1,7 @@
 Truffle.Views.ProductShow = Backbone.View.extend({
 
 	initialize: function(){
+		
 		this.product = this.model;
 		this.listenTo(this.model, "sync change reset", this.render);
 
@@ -15,10 +16,10 @@ Truffle.Views.ProductShow = Backbone.View.extend({
         user_id: Truffle.currentUser.id,
         product_id: that.model.id
       })) {
-				console.log("like exists");
+    				console.log("like exists");
         $('.like').addClass('remove');
       } else {
-				console.log("like doesn't exist");
+    				console.log("like doesn't exist");
         $('.like').addClass('add');
       }}
     });
@@ -51,6 +52,7 @@ Truffle.Views.ProductShow = Backbone.View.extend({
 	closeModal: function() {
 		$("body").removeClass("modal-open");
     $('#modal').removeClass("is-active");
+		console.log("closing modal from product show");
 	},
 	
 	like: function() {

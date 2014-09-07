@@ -9,10 +9,9 @@ Truffle.Models.User = Backbone.Model.extend({
   },
 
   followedUsers: function () {
-    var followedUsers = Truffle.currentUser.get('followedUsers');
-    var collection = new Truffle.Collections.followedUsers();
+    var followedUsers = Truffle.currentUser.get('follows');
+    var collection = new Truffle.Collections.Follows();
     collection.reset(followedUsers);
     return collection;
-  },
-
+  }
 });

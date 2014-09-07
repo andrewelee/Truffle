@@ -9,7 +9,12 @@
       <% if (Truffle.currentUser.id === this.model.id) { %>
         <div class="button editUser">Edit</div>
       <% } else { %>
-        <div class="button follow">Follow</div>
+				<% if (Truffle.currentUser.followedUsers().findWhere({follower_id: Truffle.currentUser.id,
+					followed_id: this.model.id})) { %>
+					<div class="button follow remove" data-id="<%= this.model.id %>">Unfollow</div>
+				<% } else { %>
+        	<div class="button follow" data-id="<%= this.model.id %>" %>Follow</div>
+				<% } %>
       <% } %>
 
     	<div class="user-name">
@@ -18,10 +23,10 @@
     	</div>
 
 			<ul class="user-nav group">
-			  <li class="liked nav">Likes<div class="count"><%= user.attributes.likedProducts.length %></div></li>
+			  <li class="liked nav">Likes<div class="liked count"><%= user.attributes.likedProducts.length %></div></li>
 			  <!-- <li>Collections</li> -->
-			  <li class="following nav">Following<div class="count"><%= user.attributes.followedUsers.length %></div></li>
-			  <li class="followers nav">Followers<div class="count"><%= user.attributes.followers.length %></div></li>
+			  <li class="following nav">Following<div class="following count"><%= user.attributes.followedUsers.length %></div></li>
+			  <li class="followers nav">Followers<div class="followers count"><%= user.attributes.followers.length %></div></li>
 			</nav>
 
   	</div>

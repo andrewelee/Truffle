@@ -7,15 +7,14 @@ class Api::FollowsController < ApplicationController
   def create
     @follow = Follow.new(follow_params)
     @follow.save
-    redirect_to user_url(@follow.followed_id)
+    render partial: "api/follows/follow.json", locals: { follow: @follow }
   end
 
   def destroy
-    @follow = Follow.find_follow(
-      params[:follow][:follower_id],
-      params[:follow][:followed_id])
+    @follow = Follow.find(params[:id])
     @follow.destroy
-    redirect_to user_url(@follow.followed_id)
+    #render json: @follow
+    render json: @follow
   end
 
   private

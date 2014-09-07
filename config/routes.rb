@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     resources :users
     resources :categories
     resources :brands
-    resources :likes
+    resources :likes, only: [:create, :destroy, :index]
+    resources :follows, only: [:create, :destroy, :index]
   end
 
   #Rails:

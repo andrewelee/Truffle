@@ -9,7 +9,7 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "" : "index",
     "explore" : "index",
-    "products/:id" : "productShow",
+    //"products/:id" : "productShow",
 		"products/new" : "productNew",
 		"users/:id": "userShow",
     "categories" : "categoriesIndex",
