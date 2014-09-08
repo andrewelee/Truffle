@@ -5,7 +5,7 @@ Truffle.Views.BrandsIndex = Backbone.View.extend({
   },
 
   events: {
-		'click .product-image' : 'renderProduct',
+		'click .brand-product' : 'renderProduct',
     },
 
   template: JST['brands/index'],
@@ -16,21 +16,23 @@ Truffle.Views.BrandsIndex = Backbone.View.extend({
     return this;
   },
 
-  renderProduct: function() {
-    event.preventDefault();
-    var id = $(event.target).attr('data-id');
-    var product = new Truffle.Models.Product({id: id});
-    product.fetch();
+  renderProduct: function(){
+    console.log($(event.target).attr('data-id'));
+    var id = parseInt($(event.target).attr('data-id'));
 
+		$('.modal-content').removeClass("like");
     $("#modal").addClass("is-active");
-
 	  $("body").addClass("modal-open");
 
-    $('.modal-content').html(
-      JST['products/product-modal']({
-        product: this.collection.get(id)
-      })
-    )
+		var products = new Truffle.Collections.Products;
+		products.fetch({
+			success: function(){
+    		var modalView = new Truffle.Views.ProductShow({
+          model: products.get(id)
+        })
+        $('.modal-content').html(modalView.render().$el);
+			}
+		})
 
     $('.hide-modal').on('click', function() {
 			$("body").removeClass("modal-open")

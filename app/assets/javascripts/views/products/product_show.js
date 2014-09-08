@@ -3,10 +3,10 @@ Truffle.Views.ProductShow = Backbone.View.extend({
 	initialize: function(){
 		this.product = this.model;
 		this.product.fetch();
-
+    Truffle.currentUser.fetch();
 		this.listenTo(this.model, "sync change reset", this.render);
 
-    Truffle.currentUser.fetch();
+
 
     var that = this;
 

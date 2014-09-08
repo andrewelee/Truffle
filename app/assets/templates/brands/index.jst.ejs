@@ -11,7 +11,7 @@
 
             <% _(brand.attributes.products.slice(0,5)).each(function(product) { %>
               <div class="brand-product">
-                <div class="brand-overlay"></div>
+                <div class="brand-overlay" data-id="<%= product.id %>"></div>
                 <img src="<%= product.imageSmall %>">
               </div>
             <% }) %>
