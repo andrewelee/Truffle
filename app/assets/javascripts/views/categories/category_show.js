@@ -69,19 +69,20 @@ Truffle.Views.CategoryShow = Backbone.View.extend({
     var product = new Truffle.Models.Product({id: id});
     product.fetch();
 
+		$('.modal-content').removeClass("like");
     $("#modal").addClass("is-active");
-
 	  $("body").addClass("modal-open");
 
-    $('.modal-content').html(
-      JST['products/product-modal']({
-        product: this.collection.get(id)
-      })
-    )
+		var modalView = new Truffle.Views.ProductShow({
+      model: this.collection.get(id)
+		})
+		
+		$('.modal-content').html(modalView.render().$el);
 
     $('.hide-modal').on('click', function() {
 			$("body").removeClass("modal-open")
       $('#modal').removeClass("is-active");
+			console.log("closing modal from product index");
     })
 
   },

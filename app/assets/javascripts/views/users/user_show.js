@@ -21,7 +21,8 @@ Truffle.Views.UserShow = Backbone.View.extend({
 			'click .followers' : 'filter',
 			'click .following' : 'filter',
       'click .follow' : 'followToggle',
- 		  'click .product-image' : 'renderProduct'
+ 		  'click .product-image' : 'renderProduct',
+			'.click .edit :'  : 'editUser'
 // 		  'click .like-count' : 'renderLikes'
     },
 
@@ -52,7 +53,7 @@ Truffle.Views.UserShow = Backbone.View.extend({
 			$(".liked").addClass('active');
 			var likedProducts = this.model.get('likedProducts');
 			var products = new Truffle.Collections.Products(likedProducts);
-			products.fetch();
+			//products.fetch();
 			var userView = new Truffle.Views.ProductsIndex({
 				collection: products
 			})	
@@ -105,6 +106,10 @@ Truffle.Views.UserShow = Backbone.View.extend({
 				})
 		};
   },
+	
+	editUser: function() {
+		
+	},
 
   //To be replaced by a specific product show view/modal(?)
   renderProduct2: function() {

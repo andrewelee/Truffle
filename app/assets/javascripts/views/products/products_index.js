@@ -19,7 +19,6 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
   render: function(){
     var content = this.template({ products: this.collection });
     this.$el.html(content);
-		//$('.product-box').css('opacity', '0').fadeTo(500, 1,'swing');
     return this;
   },
 
@@ -61,10 +60,10 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
     var product = new Truffle.Models.Product({id: id});
     product.fetch();
 
+		$('.modal-content').removeClass("like");
     $("#modal").addClass("is-active");
 	  $("body").addClass("modal-open");
 
-		//
 		var modalView = new Truffle.Views.ProductShow({
       model: this.collection.get(id)
 		})
@@ -75,7 +74,6 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
 			$("body").removeClass("modal-open")
       $('#modal').removeClass("is-active");
 			console.log("closing modal from product index");
-			//that.collection.fetch();
     })
 
   },
@@ -88,7 +86,6 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
     $("#modal").addClass("is-active");
     $('.modal-content').addClass("like");
 
-    //hoping to prevent background scroll during modal:
 	  $("body").addClass("modal-open");
 
 
