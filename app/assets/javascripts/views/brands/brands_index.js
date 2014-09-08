@@ -24,19 +24,15 @@ Truffle.Views.BrandsIndex = Backbone.View.extend({
     $("#modal").addClass("is-active");
 	  $("body").addClass("modal-open");
 
-		var products = new Truffle.Collections.Products;
-		products.fetch({
-			success: function(){
-    		var modalView = new Truffle.Views.ProductShow({
-          model: products.get(id)
-        })
-        $('.modal-content').html(modalView.render().$el);
-			}
-		})
+    var modalView = new Truffle.Views.ProductShow({
+      model: Truffle.products.get(id)
+    })
+    $('.modal-content').html(modalView.render().$el);
 
     $('.hide-modal').on('click', function() {
-			$("body").removeClass("modal-open")
+			$("body").removeClass("modal-open");
       $('#modal').removeClass("is-active");
+      $('.modal-content').empty();
     })
 
   }

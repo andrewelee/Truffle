@@ -14,6 +14,8 @@ window.Truffle = {
     Truffle.users = new Truffle.Collections.Users();
 		Truffle.categories = new Truffle.Collections.Categories();
 		Truffle.brands = new Truffle.Collections.Brands();
+    Truffle.products = new Truffle.Collections.Products();
+    Truffle.products.fetch();
     Truffle.users.fetch();
 		Truffle.categories.fetch();
 		Truffle.brands.fetch();
