@@ -29,31 +29,50 @@
 			@<%= product.attributes.finder.username %>
 		</a>
 
-    <% if (product.note != null) { %>
-    <div class="note">
-
-        <p><%= product.note %></p>
-
-    </div>
-    <% } %>
-
 	</section>
+
+  <% if (product.escape('note')) { %>
+  <div class="editor-note">
+      <h2>Editor's note:</h2>
+			<p><%= product.escape('note') %></p>
+  </div>
+  <% } %>
 
   <ul class="comments">
     <% _(product.attributes.comments).each(function(comment) { %>
       <li class="comment-avatar">
-        <a href="/#/users/<%= comment.id %>">
+        <a href="/#/users/<%= comment.user_id %>">
           <img src="<%= comment.image %>">
         </a>
+				
         <div class="comment-body">
           <h2><%= comment.text %> <h2>
           <h3><%= comment.username %></h3>
         </div>
-
-
-
+				<div class="x" data-id="<%= comment.id %>">X</div>
+				
+				<!-- <div class="x">X
+        <div class="comment-body">
+          <h2><%= comment.text %> <h2>
+          <h3><%= comment.username %></h3>
+        </div>
+				</div> -->
+				
       </li>
     <% }) %>
   </ul>
-
+	
+	<% if (Truffle.currentUser.id > 0) { %>
+		<form id="comment-form" class="comment">
+			<div class="input">
+				<label for="textarea-comment-text">Share your thoughts:</label>
+				<img src="<%= Truffle.currentUser.escape('imageThumb') %>">
+				<textarea class="comment" id="textarea-comment-text" name="comment[text]"></textarea>
+			</div>
+			
+			<div class="submit">
+				<input class="comment" type="submit" value="Submit">
+			</div>
+		</form>
+		<% } %>
 

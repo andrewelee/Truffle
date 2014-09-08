@@ -25,7 +25,8 @@ json.userLikes product.user_likes.each do |user|
 end
 
 json.comments product.comments do |comment|
-  json.id comment.user_id
+  json.id comment.id
+  json.user_id comment.user_id
   json.username comment.user.username
   json.text comment.text
   json.image comment.user.avatar.url(:thumb)

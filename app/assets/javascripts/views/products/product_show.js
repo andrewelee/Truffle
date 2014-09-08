@@ -1,7 +1,6 @@
 Truffle.Views.ProductShow = Backbone.View.extend({
 
 	initialize: function(){
-		
 		this.product = this.model;
 		this.listenTo(this.model, "sync change reset", this.render);
 
@@ -30,6 +29,8 @@ Truffle.Views.ProductShow = Backbone.View.extend({
 
   events: {
       'click .like' : 'like',
+			'submit form#comment-form' : "createComment",
+			'click .x' : 'deleteComment',
 			'click .hide-modal' : 'closeModal'
     },
 
@@ -48,6 +49,41 @@ Truffle.Views.ProductShow = Backbone.View.extend({
   
 	  return this;
   },
+	
+	createComment: function() {
+		event.preventDefault();
+		var that = this;
+		var text = $('textarea#textarea-comment-text').val()
+		console.log(text);
+		var comment = new Truffle.Models.Comment({
+			user_id: Truffle.currentUser.id, 
+			product_id: this.model.id,
+			text: text
+		});
+		comment.save(null, {
+			success: function() {
+				Truffle.currentUser.fetch();
+				that.model.fetch();
+			}
+		})
+	},
+	
+	deleteComment: function() {
+		var that = this;
+		var id = parseInt($(event.target).attr('data-id'));
+		var comments = new Truffle.Collections.Comments;
+		comments.fetch({
+			success: function(){
+				var comment = comments.get(id);
+				console.log(comment);
+				comment.destroy({
+					success: function(){
+						that.model.fetch();
+					}
+				});
+			}
+		});
+	},
 	
 	closeModal: function() {
 		$("body").removeClass("modal-open");

@@ -1,0 +1,1 @@
+json.(comment, :id, :user_id, :product_id, :text, :created_at)

@@ -156,7 +156,20 @@ section.users h1 {
 	padding-top: 10px;
 }
 
-
+.you {
+  display: block;
+  height: 24px;
+  background: #ccc;
+  width: 96px;
+  padding-top: 14px;
+  padding-bottom: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  color: #FFF;
+  weight: 300;
+	transition: 0.2s;
+}
 
 .follow {
   display: block;

@@ -52,6 +52,7 @@ Truffle.Views.UserShow = Backbone.View.extend({
 			$(".liked").addClass('active');
 			var likedProducts = this.model.get('likedProducts');
 			var products = new Truffle.Collections.Products(likedProducts);
+			products.fetch();
 			var userView = new Truffle.Views.ProductsIndex({
 				collection: products
 			})	

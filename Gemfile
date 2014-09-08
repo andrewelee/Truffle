@@ -40,7 +40,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", "~> 4.1"
 gem "aws-sdk"
 gem "figaro"
-
+gem 'pg_search'
 
 
 group :development do

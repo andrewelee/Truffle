@@ -1,18 +1,22 @@
 class Api::CommentsController < ApplicationController
 
+  def index
+    @comments = Comment.all
+  end
+
   def create
     product = Product.find(comment_params[:product_id])
     comment = product.comments.new(comment_params)
     comment.user_id = current_user.id
 
     comment.save! unless comment_params[:text].blank?
-    redirect_to product_url(product)
+    render partial: "api/comments/comment.json", locals: { comment: comment }
   end
 
   def destroy
     comment = current_user.comments.find(params[:id])
     comment.destroy
-    redirect_to product_url(comment.product_id)
+    render json: comment
   end
 
   private

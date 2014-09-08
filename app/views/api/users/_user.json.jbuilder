@@ -7,6 +7,7 @@ json.likes user.likes.each do |like|
   json.id like.id
   json.user_id like.user_id
   json.product_id like.product_id
+  json.created_at like.created_at
 end
 
 json.likedProducts user.liked_products.each do |product|
