@@ -38,10 +38,10 @@ user8 = User.create(name: "Casey Jones", username: "tmnt", email: 'tmnt@gmail.co
   password_digest: '$2a$10$.wTw2OiE92inhZYoIlb2yutwi.9FI65eaurlOc0pJQeg0RHc2JdA.',
   isEditor: false, avatar: File.new("#{Rails.root}/seeds/images/avatars/casey.png"))
 
-Category.create([{ name: 'Backpacks'}, {name: 'Books'}, { name: 'Clocks'}, {name: 'Fitness'},
-   {name: 'Furniture'}, {name: 'Games/Toys'}, {name: 'Mugs'}])
+Category.create([{ name: 'Backpacks'}, {name: 'Books'}, { name: 'Clocks'},
+   {name: 'Furniture'}, {name: 'Games/Toys'}, {name: 'Mugs'}, {name: 'Office Supplies'})
 
-Brand.create([{ name: 'Misc.'}, {name: 'Decole'}, {name: 'Decomates'}, {name: 'JanSport'}, {name: 'Lego'}, {name: "Spri"}])
+Brand.create([{ name: 'Misc.'}, {name: 'Decole'}, {name: 'Decomates'}, {name: 'JanSport'}, {name: 'Lego'}, {name: "MOMA"}])
 
 #Backpacks
 
@@ -96,31 +96,31 @@ p9 = Product.create(name: "DecoMates Non-Ticking Silent Wall Clock, Pink Zebra, 
 
 p10 = Product.create(name: "Panda Fancy Mug Cup Set with Spoon",
   url: "http://www.amazon.com/gp/product/B005BZ47O4/",
-  price: 19.70, brand_id: 1, category_id: 7, finder_user_id: 1, editor_user_id: 1,
+  price: 19.70, brand_id: 1, category_id: 6, finder_user_id: 1, editor_user_id: 1,
   image: File.new("#{Rails.root}/seeds/images/products/mug1.jpg"))
 
 p11 = Product.create(name: "Decole Cat Manmaru Mug w/ Spoon",
   url: "http://www.amazon.com/Decole-Cat-Manmaru-Mug-Spoon/dp/B006IINE1A/",
-  price: 20.00, brand_id: 2, category_id: 7, finder_user_id: 2, editor_user_id: 1,
+  price: 20.00, brand_id: 2, category_id: 6, finder_user_id: 2, editor_user_id: 1,
   image: File.new("#{Rails.root}/seeds/images/products/mug2.png"))
 
 p12 = Product.create(name: "Frog Mug with Spoon Set",
   url: "http://www.amazon.com/Frog-Mug-with-Spoon-Set/dp/B0039NDIWM/",
-  price: 22.00, brand_id: 2, category_id: 7, finder_user_id: 2, editor_user_id: 1,
+  price: 22.00, brand_id: 2, category_id: 6, finder_user_id: 2, editor_user_id: 1,
   image: File.new("#{Rails.root}/seeds/images/products/mug3.jpg"))
 
 p13 = Product.create(name: "Big Mouth Toys: The Ninja Mug",
   url: "http://www.amazon.com/Big-Mouth-Toys-The-Ninja/dp/B008A0NOP0/",
-  price: 20.00, brand_id: 1, category_id: 7, finder_user_id: 4, editor_user_id: 1,
+  price: 20.00, brand_id: 1, category_id: 6, finder_user_id: 4, editor_user_id: 1,
   image: File.new("#{Rails.root}/seeds/images/products/mug4.jpg"))
 
 p14 = Product.create(name: "Zojirushi Stainless Steel Mug",
   url: "http://www.amazon.com/Zojirushi-SM-SA48-NM-Stainless-16-Ounce-Cinnamon/dp/B00HYOGTU0/",
-  price: 32.78, brand_id: 1, category_id: 7, finder_user_id: 4, editor_user_id: 2,
+  price: 32.78, brand_id: 1, category_id: 6, finder_user_id: 4, editor_user_id: 2,
   image: File.new("#{Rails.root}/seeds/images/products/mug5.jpg"))
 
 p15 = Product.create(name:"Decole Piggy Mug", url: "http://www.amazon.com/Decole-Pig-Manmaru-Mug-Spoon/dp/B00397ARDQ",
-  price: 25.00, brand_id: 2, category_id: 7,  finder_user_id: 2, editor_user_id: 1,
+  price: 25.00, brand_id: 2, category_id: 6,  finder_user_id: 2, editor_user_id: 1,
   image: File.new("#{Rails.root}/seeds/images/products/mug6.jpg"))
 
 #Books
@@ -148,20 +148,35 @@ p20 = Product.create(name:"They Say I Say", url: "http://www.amazon.com/They-Say
 #Games/Toys
 
 p21 = Product.create(name:"Cards Against Humanity", url: "http://www.amazon.com/Cards-Against-Humanity-LLC-CAHUS/dp/B004S8F7QM",
-  price: 25.00, brand_id: 1, category_id: 6,  finder_user_id: 3, editor_user_id: 1,
+  price: 25.00, brand_id: 1, category_id: 5,  finder_user_id: 3, editor_user_id: 1,
   image: File.new("#{Rails.root}/seeds/images/products/game1.jpg"))
 
 p22 = Product.create(name:"Lego Creator Treehouse", url: "http://www.amazon.com/LEGO-Creator-Treehouse-Interlocking-Building/dp/B00C9X591Q",
-  price: 23.21, brand_id: 5, category_id: 6,  finder_user_id: 8, editor_user_id: 2,
+  price: 23.21, brand_id: 5, category_id: 5,  finder_user_id: 8, editor_user_id: 2,
   image: File.new("#{Rails.root}/seeds/images/products/legos1.jpg"))
 
 p23 = Product.create(name:"Lego Death Star", url: "http://www.amazon.com/LEGO-Star-Wars-Death-10188/dp/B002EEP3NO",
-  price: 549.97, brand_id: 5, category_id: 6,  finder_user_id: 7, editor_user_id: 2,
+  price: 549.97, brand_id: 5, category_id: 5,  finder_user_id: 7, editor_user_id: 2,
   image: File.new("#{Rails.root}/seeds/images/products/legos4.jpg"))
 
 p24 = Product.create(name:"Lego Ewok Village", url: "http://www.amazon.com/LEGO-Star-Wars-10236-Village/dp/B00F15OA5A",
-  price: 249.95, brand_id: 5, category_id: 6,  finder_user_id: 7, editor_user_id: 2,
+  price: 249.95, brand_id: 5, category_id: 5,  finder_user_id: 7, editor_user_id: 2,
   image: File.new("#{Rails.root}/seeds/images/products/legos5.jpg"))
+
+p25 = Product.create(name:"Stacking Chair Game", url: "http://www.amazon.com/Las-Sillas-Stacking-Chairs-Game/dp/B00BWV1LI6",
+  price: 249.95, brand_id: 6, category_id: 5,  finder_user_id: 5, editor_user_id: 2,
+  image: File.new("#{Rails.root}/seeds/images/products/legos5.jpg"))
+
+
+#Office Supplies
+
+p26 = Product.create(name:"MOMA Snap-it-Up Organizer", url: "http://www.amazon.com/MoMA-46747-Snap-It-Up-Organizer/dp/B001VGBZJM",
+  price: 17.99, brand_id: 6, category_id: 7,  finder_user_id: 4, editor_user_id: 2,
+  image: File.new("#{Rails.root}/seeds/images/products/office1.jpg"))
+
+p27 = Product.create(name:"Silver Perpetual Calendar", url: "http://www.amazon.com/Gideon-SILVER-PERPETUAL-CALENDAR-MoMA/dp/B00D48Y4TI",
+  price: 32.45, brand_id: 6, category_id: 7,  finder_user_id: 1, editor_user_id: 2,
+  image: File.new("#{Rails.root}/seeds/images/products/office2.jpg"))
 
 Like.create(user_id: user1.id, product_id: p1.id)
 Like.create(user_id: user2.id, product_id: p2.id)
