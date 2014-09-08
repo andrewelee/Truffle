@@ -1,13 +1,14 @@
 Truffle.Views.UserShow = Backbone.View.extend({
   initialize: function() {
 		var that = this;
-		this.listenTo(this.model, "sync change reset", this.render);
+		this.listenTo(this.model, "sync change", this.render);
 		Truffle.currentUser.fetch();
+		
 		this.model.fetch({
 			success: function(){
 		    $('#modal').removeClass("is-active");
 	   		$("body").removeClass("modal-open");
-				this.sort = "none";
+				that.sort = "none";
 			}
 		});
 		
@@ -27,24 +28,28 @@ Truffle.Views.UserShow = Backbone.View.extend({
   render: function () {
     var content = this.template({ user: this.model });
     this.$el.html(content);
+		console.log(this.sort);
 
 		//Lets add products, followers, or followed (collections in the future?)
-		var view = this;
 
 		//console.log(this.sort);
 		if (this.sort === "followers") {
+			
+			$(".followers").addClass('active');
 			var followers = this.model.get('followers');
 			var users = new Truffle.Collections.Users(followers);
 			var userView = new Truffle.Views.UsersIndex({
 				collection: users
 			})
 		} else if (this.sort === "following") {
+			$(".following").addClass('active');
 			var followedUsers = this.model.get('followedUsers')
 			var users = new Truffle.Collections.Users(followedUsers);
 			var userView = new Truffle.Views.UsersIndex({
 				collection: users
 			})
 		} else {
+			$(".liked").addClass('active');
 			var likedProducts = this.model.get('likedProducts');
 			var products = new Truffle.Collections.Products(likedProducts);
 			var userView = new Truffle.Views.ProductsIndex({
@@ -58,10 +63,9 @@ Truffle.Views.UserShow = Backbone.View.extend({
     return this;
   },
 
-	//This sort is setting too slowly sometimes
 	filter: function(event) {
 		this.sort = event.target.className.split(' ')[0];
-
+		
 		this.model.fetch();
 	},
 

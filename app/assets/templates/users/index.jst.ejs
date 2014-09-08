@@ -12,7 +12,12 @@
             </a>
 		  		</div>
 
-          <div class="follow">Follow</div>
+				<% if (Truffle.currentUser.followedUsers().findWhere({follower_id: Truffle.currentUser.id,
+					followed_id: parseInt(user.escape('id'))})) { %>
+					<div class="follow remove" data-id="<%= user.escape('id') %>">Unfollow</div>
+				<% } else { %>
+        	<div class="follow" data-id="<%= user.escape('id') %>" %>Follow</div>
+				<% } %>
 
 		    	<div class="user-name">
 		    		<h2><%= user.escape('name') %></h1>

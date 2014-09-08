@@ -9,7 +9,7 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "" : "index",
     "explore" : "index",
-    //"products/:id" : "productShow",
+		"feed" :"feed",
 		"products/new" : "productNew",
 		"users/:id": "userShow",
     "categories" : "categoriesIndex",
@@ -90,8 +90,20 @@ Truffle.Routers.AppRouter = Backbone.Router.extend({
 			model: user
 		});
 		
-		this.$contentNav.empty() 
+		this.$contentNav.empty();
 		this._swapView(userShowView);
+	},
+	
+	feed: function() {
+		var user = Truffle.currentUser;
+		user.fetch()
+		console.log(user);
+		var userFeedView = new Truffle.Views.UserFeed({
+			model: user
+		});
+		
+		this.$contentNav.empty();
+		this._swapView(userFeedView);
 	},
 
   _swapView: function(newView) {

@@ -7,7 +7,7 @@
 
         	<div class="product-box">
             <div class="product-price">
-              <a href="<%= product.escape("url") %>">
+              <a href="<%= product.escape("url") %>"target="_blank">
                 $<%= Math.round(product.escape("price")) %>
               </a>
             </div>
@@ -15,10 +15,13 @@
 
             <div class="product-image" data-id="<%= product.id %>">
               <a href="#/products/<%= product.id %>">
-                <div class="product-image bg" data-id="<%= product.id %>"></div>
+                <div class="product-image bg" data-id="<%= product.id %>">
+									<p class="name"><%= product.escape("name") %></p>
+								</div>
               </a>
               <img src="<%= product.escape("imageSmall") %>"
               data-id="<%= product.id %>">
+							
             </div>
 
           	<div class="like-box">

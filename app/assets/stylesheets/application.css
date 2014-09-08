@@ -328,20 +328,40 @@ div.product-image {
   cursor: pointer;
 }
 
+div.product-image p {
+	opacity: 0;
+	transition: 0.2s;
+	position: inherit;
+	bottom: 20px;
+	color: #323232;
+	font-weight: 300;
+	text-align: center;
+	width: 100%;
+	
+}
+
+
 div.bg{
 
 	position:absolute;
   width:100%;
   height:336px;
 	transition: 0.3s;
+	background-color: rgba(0,0,0,0.15);
 	opacity:0;
 }
 
-div.bg:hover {
+div.bg:hover{
   width:100%;
   height:335px;
-  background-color:#000;
-  opacity:0.15;
+  /*background-color:#000;
+	opacity:1;*/
+	
+  opacity:1;
+}
+
+div.bg:hover > p {
+	opacity: 1;
 }
 
 div.product-image img {

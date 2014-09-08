@@ -12,7 +12,7 @@
 	<section class="modal-info">
 		<h1 class="product-show"><%= product.escape('name') %></h1>
 
-		<a href="<%= product.escape("url") %>" class="price">
+		<a href="<%= product.escape("url") %>"target="_blank" class="price">
 			$<%= Math.round(product.escape("price")) %> on Amazon
 		</a>
 

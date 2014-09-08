@@ -35,5 +35,8 @@ class Product < ActiveRecord::Base
   has_many :user_likes, through: :likes, source: :user
   has_many :comments, inverse_of: :product, dependent: :destroy
 
+  include PgSearch
+  
+  multisearchable against: [:name]
 
 end

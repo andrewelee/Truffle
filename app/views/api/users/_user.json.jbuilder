@@ -14,6 +14,7 @@ json.likedProducts user.liked_products.each do |product|
   json.(product, :id, :price, :name)
   json.imageSmall product.image.url(:small)
   json.imageLarge product.image.url(:large)
+  json.url product.url
 
   json.likes product.user_likes.length
   json.finder product.finder, :id, :username

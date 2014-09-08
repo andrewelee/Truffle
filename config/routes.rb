@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :brands
     resources :likes, only: [:create, :destroy, :index]
     resources :follows, only: [:create, :destroy, :index]
+    resources :feed
   end
 
   #Rails:
