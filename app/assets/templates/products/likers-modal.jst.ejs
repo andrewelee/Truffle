@@ -2,7 +2,15 @@
 
 <ul class="likes-modal">
 
-  <p><%= product.get('userLikes').length %> likes:</p>
+  <% var likes = product.get('userLikes').length %>
+
+  <p><%= likes %>
+    <% if (likes == 1) { %>
+      like:
+    <% } else { %>
+      likes:
+    <% } %>
+  </p>
 
   <% _(product.get('userLikes')).each(function(user) { %>
     <li>

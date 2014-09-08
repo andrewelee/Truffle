@@ -1,7 +1,7 @@
 Truffle.Views.ProductsIndex = Backbone.View.extend({
 
   initialize: function(options) {
-    this.listenTo(this.collection, "sync change reset sort", this.render);
+    this.listenTo(this.collection, "sync change reset sort destroy", this.render);
 		Truffle.pubSub.on('random', this.shuffle, this);
 		Truffle.pubSub.on('popular', this.sortPopular, this);
 		Truffle.pubSub.on('new', this.sortNew, this);
@@ -67,13 +67,12 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
 		var modalView = new Truffle.Views.ProductShow({
       model: this.collection.get(id)
 		})
-		
+
 		$('.modal-content').html(modalView.render().$el);
 
     $('.hide-modal').on('click', function() {
 			$("body").removeClass("modal-open")
       $('#modal').removeClass("is-active");
-			console.log("closing modal from product index");
     })
 
   },

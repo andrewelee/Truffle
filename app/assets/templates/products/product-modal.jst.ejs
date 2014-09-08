@@ -44,7 +44,7 @@
         <a href="/#/users/<%= comment.user_id %>">
           <img src="<%= comment.image %>">
         </a>
-				
+
         <div class="comment-body">
           <h2><%= comment.text %> <h2>
           <h3><%= comment.username %></h3>
@@ -58,11 +58,11 @@
           <h3><%= comment.username %></h3>
         </div>
 				</div> -->
-				
+
       </li>
     <% }) %>
   </ul>
-	
+
 	<% if (Truffle.currentUser.id > 0) { %>
 		<form id="comment-form" class="comment">
 			<div class="input">
@@ -70,10 +70,14 @@
 				<img src="<%= Truffle.currentUser.escape('imageThumb') %>">
 				<textarea class="comment" id="textarea-comment-text" name="comment[text]"></textarea>
 			</div>
-			
+
 			<div class="submit">
 				<input class="comment" type="submit" value="Submit">
 			</div>
 		</form>
 		<% } %>
+
+    <% if (Truffle.currentUser.attributes.isEditor === true) { %>
+      <div class="delete-product">Delete</div>
+    <% } %>
 

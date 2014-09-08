@@ -11,7 +11,7 @@
 
             <% _(category.attributes.products.slice(0,5)).each(function(product) { %>
               <div class="category-product">
-                <div class="category-overlay"></div>
+                <div class="category-overlay" data-id="<%= product.id %>"></div>
                 <img src="<%= product.imageSmall %>">
               </div>
             <% }) %>

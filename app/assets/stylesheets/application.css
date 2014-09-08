@@ -277,7 +277,8 @@ div.product-box {
 	margin: 0 auto;
   margin-right: 30px;
   margin-bottom: 30px;
-	width: 288px;
+	width: 30%;
+  min-width: 288px;
 	height: 383px;
 	background: #FFA540; /* #FF8500, #FF8700 */
   position: relative;
@@ -337,7 +338,7 @@ div.product-image p {
 	font-weight: 300;
 	text-align: center;
 	width: 100%;
-	
+
 }
 
 
@@ -356,7 +357,7 @@ div.bg:hover{
   height:335px;
   /*background-color:#000;
 	opacity:1;*/
-	
+
   opacity:1;
 }
 
@@ -615,6 +616,7 @@ textarea.form:focus {
 	font-family: europa, 'Helvetica';
 	color: #525252;
 	-webkit-font-smoothing: antialiased;
+  overflow-y: hidden;
 }
 
 .input textarea:focus {
@@ -679,7 +681,7 @@ button.comment:hover {
 	max-height: 90%;
   min-height: 70%;
 	margin-left: -45%;
-	margin-top: -30%;
+	margin-top: -35%;
 	overflow-y:scroll;
 	overflow-x:hidden;
 
@@ -815,7 +817,7 @@ button.comment:hover {
 }
 
 .modal-content.like {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   background: #fff;
   top: 50%;
@@ -989,7 +991,7 @@ textarea.comment {
 	width: 600px;
 	height: 48px;
 	box-sizing: border-box;
-	padding: 15px 10px;	
+	padding: 15px 10px;
 }
 
 .submit > .comment {
@@ -1021,7 +1023,7 @@ textarea.comment {
 	border-radius: 6px;
 	color: #fff;
 	transition: 0.3s;
-	opacity: 0.4;
+	opacity: 0.2;
 }
 
 .x:hover {
@@ -1043,5 +1045,23 @@ li.comment-avatar:hover {
 	border-bottom-right-radius: 6px;
 	/*border-bottom: 1px solid #aaa;*/
 	box-sizing: border-box;
+}
+
+.delete-product {
+  float: right;
+  bottom: 0;
+  display: inline-block;
+  position: absolute;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  padding: 5px 10px;
+  background: #999;
+  color:#fff;
+  transition: 0.2s;
+}
+
+.delete-product:hover {
+  background: #000;
+  cursor: pointer;
 }
 
