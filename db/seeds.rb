@@ -39,16 +39,17 @@ user8 = User.create(name: "Casey Jones", username: "tmnt", email: 'tmnt@gmail.co
   isEditor: false, avatar: File.new("#{Rails.root}/seeds/images/avatars/casey.png"))
 
 Category.create([{ name: 'Backpacks'}, {name: 'Books'}, { name: 'Clocks'},
-   {name: 'Furniture'}, {name: 'Games/Toys'}, {name: 'Mugs'}, {name: 'Office Supplies'})
+   {name: 'Furniture'}, {name: 'Games/Toys'}, {name: 'Mugs'}, {name: 'Office Supplies'}])
 
-Brand.create([{ name: 'Misc.'}, {name: 'Decole'}, {name: 'Decomates'}, {name: 'JanSport'}, {name: 'Lego'}, {name: "MOMA"}])
+Brand.create([{ name: 'Misc.'}, {name: 'Decole'}, {name: 'Decomates'}, {name: 'JanSport'}, {name: 'Lego'}, {name: "MOMA"},
+  {name: 'Nike'}, {name: "Prince"}, {name: 'Samsung'}, {name: 'Sony'}])
 
 #Backpacks
 
 p1 = Product.create(name: "JanSport Classic SuperBreak Backpack",
   url: "http://www.amazon.com/dp/B006ML7JXC",
   price: 30.96, brand_id: 4, category_id: 1, finder_user_id: 1, editor_user_id: 1,
-  image: File.new("#{Rails.root}/seeds/images/products/backpack1.jpg"))
+  note: "Classic for a reason", image: File.new("#{Rails.root}/seeds/images/products/backpack1.jpg"))
 
 p2 = Product.create(name: "JanSport Classic SuperBreak Backpack Floral",
   url: "http://www.amazon.com/dp/B00HS5YK06/",
@@ -117,10 +118,12 @@ p13 = Product.create(name: "Big Mouth Toys: The Ninja Mug",
 p14 = Product.create(name: "Zojirushi Stainless Steel Mug",
   url: "http://www.amazon.com/Zojirushi-SM-SA48-NM-Stainless-16-Ounce-Cinnamon/dp/B00HYOGTU0/",
   price: 32.78, brand_id: 1, category_id: 6, finder_user_id: 4, editor_user_id: 2,
+  note: "Zojirushi doesn't mess around"
   image: File.new("#{Rails.root}/seeds/images/products/mug5.jpg"))
 
 p15 = Product.create(name:"Decole Piggy Mug", url: "http://www.amazon.com/Decole-Pig-Manmaru-Mug-Spoon/dp/B00397ARDQ",
   price: 25.00, brand_id: 2, category_id: 6,  finder_user_id: 2, editor_user_id: 1,
+  note: "Another hit from Decole",
   image: File.new("#{Rails.root}/seeds/images/products/mug6.jpg"))
 
 #Books
@@ -157,6 +160,7 @@ p22 = Product.create(name:"Lego Creator Treehouse", url: "http://www.amazon.com/
 
 p23 = Product.create(name:"Lego Death Star", url: "http://www.amazon.com/LEGO-Star-Wars-Death-10188/dp/B002EEP3NO",
   price: 549.97, brand_id: 5, category_id: 5,  finder_user_id: 7, editor_user_id: 2,
+  note: "Only one left in the store!",
   image: File.new("#{Rails.root}/seeds/images/products/legos4.jpg"))
 
 p24 = Product.create(name:"Lego Ewok Village", url: "http://www.amazon.com/LEGO-Star-Wars-10236-Village/dp/B00F15OA5A",
@@ -165,7 +169,7 @@ p24 = Product.create(name:"Lego Ewok Village", url: "http://www.amazon.com/LEGO-
 
 p25 = Product.create(name:"Stacking Chair Game", url: "http://www.amazon.com/Las-Sillas-Stacking-Chairs-Game/dp/B00BWV1LI6",
   price: 249.95, brand_id: 6, category_id: 5,  finder_user_id: 5, editor_user_id: 2,
-  image: File.new("#{Rails.root}/seeds/images/products/legos5.jpg"))
+  image: File.new("#{Rails.root}/seeds/images/products/gamemoma.jpg"))
 
 
 #Office Supplies
@@ -207,6 +211,7 @@ Comment.create(user_id: user5.id, product_id: p10.id, text: "Hullo.")
 Comment.create(user_id: user6.id, product_id: p1.id, text: "My backpack never looked this good in middle school.")
 Comment.create(user_id: user7.id, product_id: p1.id, text: "I still use mine.")
 Comment.create(user_id: user8.id, product_id: p24.id, text: "This is my favorite thing.")
+Comment.create(user_id: user8.id, product_id: p17.id, text: "Terrified me for weeks.")
 
 Follow.create(follower_id: user2.id, followed_id: user1.id)
 Follow.create(follower_id: user3.id, followed_id: user1.id)
