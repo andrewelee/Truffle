@@ -118,7 +118,7 @@ p13 = Product.create(name: "Big Mouth Toys: The Ninja Mug",
 p14 = Product.create(name: "Zojirushi Stainless Steel Mug",
   url: "http://www.amazon.com/Zojirushi-SM-SA48-NM-Stainless-16-Ounce-Cinnamon/dp/B00HYOGTU0/",
   price: 32.78, brand_id: 1, category_id: 6, finder_user_id: 4, editor_user_id: 2,
-  note: "Zojirushi doesn't mess around"
+  note: "Zojirushi doesn't mess around",
   image: File.new("#{Rails.root}/seeds/images/products/mug5.jpg"))
 
 p15 = Product.create(name:"Decole Piggy Mug", url: "http://www.amazon.com/Decole-Pig-Manmaru-Mug-Spoon/dp/B00397ARDQ",
