@@ -31,7 +31,6 @@ body {
 
 body.modal-open {
     overflow: hidden;
-
 }
 
 .head {
@@ -658,20 +657,6 @@ button.comment:hover {
 }
 
 /*.modal-content {
-	position: absolute;
-	z-index: 1000;
-	background: #fff;
-	top: 50%;
-	left: 50%;
-	width: 900px;
-	min-height: 75%;
-	padding: 50px;
-	margin-left: -500px;
-	margin-top: -400px;
-  overflow: visible;
-}*/
-
-.modal-content {
 	position: fixed;
 	z-index: 1000;
 	background: #fff;
@@ -687,6 +672,30 @@ button.comment:hover {
 
   box-sizing: border-box;
   padding: 50px;
+}*/
+
+.modal-content {
+	position: fixed;
+	z-index: 1000;
+	background: #fff;
+	top: 50%;
+	left: 50%;
+	width: 90%;
+	height: 800px;
+	margin-left: -45%;
+	margin-top: -400px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+
+  box-sizing: border-box;
+  padding: 50px;
+}
+
+@media screen and (max-height: 700px) {
+	.modal-content {
+		height: 600px;
+		margin-top: -300px;
+	}
 }
 
 .modal-image {

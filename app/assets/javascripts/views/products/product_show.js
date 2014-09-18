@@ -3,10 +3,10 @@ Truffle.Views.ProductShow = Backbone.View.extend({
 	initialize: function(){
 		this.product = this.model;
 		this.product.fetch();
-    Truffle.currentUser.fetch();
+		if (Truffle.currentUser.id > 0) {
+			Truffle.currentUser.fetch();
+		}
 		this.listenTo(this.model, "sync change reset", this.render);
-
-
 
     var that = this;
 
@@ -17,10 +17,8 @@ Truffle.Views.ProductShow = Backbone.View.extend({
         user_id: Truffle.currentUser.id,
         product_id: that.model.id
       })) {
-    				console.log("like exists");
         $('.like').addClass('remove');
       } else {
-    				console.log("like doesn't exist");
         $('.like').addClass('add');
       }}
     });
