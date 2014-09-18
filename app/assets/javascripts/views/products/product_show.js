@@ -106,23 +106,25 @@ Truffle.Views.ProductShow = Backbone.View.extend({
 	like: function() {
 		var that = this;
 
-		if (Truffle.currentUser.likes().findWhere({product_id: this.model.id})){
-			var likedProduct = Truffle.currentUser.likes().findWhere({product_id: this.model.id});
-			likedProduct.destroy({
-				success: function(){
-					Truffle.currentUser.fetch();
-					that.model.fetch();
-				}
-			});
-		} else {
-			var that = this;
-	    var productLike = new Truffle.Models.Like({user_id: Truffle.currentUser.id, product_id: this.model.id});
-	    productLike.save(null , {
-				success: function(){
-					Truffle.currentUser.fetch();
-					that.model.fetch();
-				}
-			});
+		if (Truffle.currentUser.id > 0 ) {
+			if (Truffle.currentUser.likes().findWhere({product_id: this.model.id})){
+				var likedProduct = Truffle.currentUser.likes().findWhere({product_id: this.model.id});
+				likedProduct.destroy({
+					success: function(){
+						Truffle.currentUser.fetch();
+						that.model.fetch();
+					}
+				});
+			} else {
+				var that = this;
+		    var productLike = new Truffle.Models.Like({user_id: Truffle.currentUser.id, product_id: this.model.id});
+		    productLike.save(null , {
+					success: function(){
+						Truffle.currentUser.fetch();
+						that.model.fetch();
+					}
+				});
+			}
 		}
 	}
 

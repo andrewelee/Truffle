@@ -1,28 +1,12 @@
-== README
+Truffle
+=======
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I made a clone of the [Canopy](http://www.canopy.co) site using Rails and Backbone.js. Canopy is a curated
+Amazon shopping experience and I really liked their aesthetic and thought it would be a great opportunity
+to practice a lot of my skills.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The first made the app in Rails and got a basic framework together and working. I then began
+to port over to Backbone and added additional features. I spent a lot of time working on my CSS to create a clean
+and enjoyable user experience.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

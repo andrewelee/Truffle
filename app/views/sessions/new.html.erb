@@ -6,20 +6,30 @@
 
 		<div class="input">
 	  <label>
-	    <input type="text" name="user[idInput]" placeholder="email or username">
+	    <input class="id" type="text" name="user[idInput]" placeholder="email or username">
 	  </label>
 		</div>
 
 		<div class="input">
 	  <label>
-	    <input type="password" name="user[password]" placeholder="password">
+	    <input class="pass" type="password" name="user[password]" placeholder="password">
 	  </label>
 		</div>
 
-	  <button class="sign">Log in</button>
+	  <button class="sign">Log in</button> <button type="button" class="sign demo">Guest</button>
 
 	</form>
 </div>
+
+<script>
+$(document).ready(function () {
+	$("button.demo").on("click", function () {
+		$('.id').val("dannytanner1987");
+		$('.pass').val("123456");
+	});
+});
+
+</script>
 
 <% if flash[:errors] %>
 <script>
