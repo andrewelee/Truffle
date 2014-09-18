@@ -1,4 +1,5 @@
-#Truffle
+Truffle
+=======
 
 I made a clone of the [Canopy](http://www.canopy.co) site using Rails and Backbone.js. Canopy is a curated Amazon shopping experience and I really liked their aesthetic and thought it would be a great opportunity to practice a lot of my skills.
 
