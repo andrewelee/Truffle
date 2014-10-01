@@ -825,7 +825,7 @@ button.comment:hover {
   color: #333;
 }
 
-.modal-content.like {
+.modal-content.like-modal {
   position: fixed;
   z-index: 1000;
   background: #fff;
@@ -833,14 +833,21 @@ button.comment:hover {
   left: 50%;
 
   width: 400px;
-  min-height: 300px;
+  height: 600px;
   padding: 50px;
 
-  margin-left: -250px;
-  margin-top: -200px;
+  margin-left: -200px;
+  margin-top: -300px;
 }
 
-.modal-content.like p {
+@media screen and (max-height: 700px) {
+	.modal-content.like-modal {
+		height: 500px;
+		margin-top: -250px;
+	}
+}
+
+.modal-content.like-modal p {
   padding-left: 50px;
   font-family: europa, 'Helvetica';
   font-size: 24px;
@@ -848,7 +855,7 @@ button.comment:hover {
   margin-bottom: 30px;
 }
 
-.modal-content.like li {
+.modal-content.like-modal li {
   padding-left: 50px;
   display: block;
   height: 48px;
@@ -856,7 +863,7 @@ button.comment:hover {
   margin-bottom: 10px;
 }
 
-.modal-content.like img {
+.modal-content.like-modal img {
   float: left;
   display: block;
   width: 48px;

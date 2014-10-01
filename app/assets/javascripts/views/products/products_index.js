@@ -83,7 +83,7 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
     product.fetch();
 
     $("#modal").addClass("is-active");
-    $('.modal-content').addClass("like");
+    $('.modal-content').addClass("like-modal");
 
 	  $("body").addClass("modal-open");
 
@@ -97,7 +97,7 @@ Truffle.Views.ProductsIndex = Backbone.View.extend({
     $('.hide-modal').on('click', function() {
 			$("body").removeClass("modal-open")
       $('#modal').removeClass("is-active");
-      $('.modal-content').removeClass("like");
+      $('.modal-content').removeClass("like-modal");
     })
 
   },
